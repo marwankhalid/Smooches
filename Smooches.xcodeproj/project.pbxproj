@@ -56,15 +56,71 @@
 		23909E64292B88CF00A13E62 /* Smooches */ = {
 			isa = PBXGroup;
 			children = (
-				23909E65292B88CF00A13E62 /* AppDelegate.swift */,
-				23909E67292B88CF00A13E62 /* SceneDelegate.swift */,
-				23909E69292B88CF00A13E62 /* ViewController.swift */,
-				23909E6B292B88CF00A13E62 /* Main.storyboard */,
-				23909E6E292B88D000A13E62 /* Assets.xcassets */,
-				23909E70292B88D000A13E62 /* LaunchScreen.storyboard */,
+				23909E79292B8B0000A13E62 /* Classes */,
+				23909E7E292B8B3500A13E62 /* Extensions */,
+				23909E7D292B8B2900A13E62 /* Storyboards */,
+				23909E7C292B8B2200A13E62 /* Views */,
+				23909E7B292B8B1600A13E62 /* Controllers */,
+				23909E7A292B8B0900A13E62 /* Models */,
+				23909E7F292B8B4500A13E62 /* SupoortingFiles */,
 				23909E73292B88D000A13E62 /* Info.plist */,
 			);
 			path = Smooches;
+			sourceTree = "<group>";
+		};
+		23909E79292B8B0000A13E62 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		23909E7A292B8B0900A13E62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		23909E7B292B8B1600A13E62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23909E69292B88CF00A13E62 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		23909E7C292B8B2200A13E62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		23909E7D292B8B2900A13E62 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				23909E6B292B88CF00A13E62 /* Main.storyboard */,
+				23909E70292B88D000A13E62 /* LaunchScreen.storyboard */,
+				23909E6E292B88D000A13E62 /* Assets.xcassets */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		23909E7E292B8B3500A13E62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23909E7F292B8B4500A13E62 /* SupoortingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				23909E67292B88CF00A13E62 /* SceneDelegate.swift */,
+				23909E65292B88CF00A13E62 /* AppDelegate.swift */,
+			);
+			path = SupoortingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +346,13 @@
 				DEVELOPMENT_TEAM = BXVX4C8M3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smooches/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Smooches;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +360,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = marwankhalid.Smooches;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,11 +379,13 @@
 				DEVELOPMENT_TEAM = BXVX4C8M3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Smooches/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Smooches;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +393,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = marwankhalid.Smooches;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
