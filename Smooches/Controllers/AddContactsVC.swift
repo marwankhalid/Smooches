@@ -40,7 +40,9 @@ class AddContactsVC: UIViewController {
     }
 
     @IBAction func nextB(_ sender: Any) {
-        
+        let contoller = storyboard?.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+        contoller.modalPresentationStyle = .fullScreen
+        self.present(contoller, animated: true)
     }
     
 }
