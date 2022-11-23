@@ -9,6 +9,11 @@ import UIKit
 
 class HomeTVC: UITableViewCell {
 
+    @IBOutlet weak var cardV: UIView!
+    @IBOutlet weak var imgI: UIImageView!
+    @IBOutlet weak var nameL: UILabel!
+    @IBOutlet weak var phoneL: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
