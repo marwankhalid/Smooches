@@ -15,6 +15,8 @@
 		23909E72292B88D000A13E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23909E70292B88D000A13E62 /* LaunchScreen.storyboard */; };
 		23909E81292E542600A13E62 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E80292E542600A13E62 /* HomeVC.swift */; };
 		23909E83292E543500A13E62 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E82292E543500A13E62 /* HomeTVC.swift */; };
+		23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E84292F4F2900A13E62 /* AlertVC.swift */; };
+		23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E86292F4F4200A13E62 /* MessagesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		23909E73292B88D000A13E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23909E80292E542600A13E62 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		23909E82292E543500A13E62 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		23909E84292F4F2900A13E62 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		23909E86292F4F4200A13E62 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 			children = (
 				23909E69292B88CF00A13E62 /* AddContactsVC.swift */,
 				23909E80292E542600A13E62 /* HomeVC.swift */,
+				23909E86292F4F4200A13E62 /* MessagesVC.swift */,
+				23909E84292F4F2900A13E62 /* AlertVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 				23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */,
 				23909E81292E542600A13E62 /* HomeVC.swift in Sources */,
 				23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */,
+				23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */,
 				23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */,
 				23909E83292E543500A13E62 /* HomeTVC.swift in Sources */,
+				23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
