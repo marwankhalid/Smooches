@@ -17,6 +17,7 @@
 		23909E83292E543500A13E62 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E82292E543500A13E62 /* HomeTVC.swift */; };
 		23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E84292F4F2900A13E62 /* AlertVC.swift */; };
 		23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E86292F4F4200A13E62 /* MessagesVC.swift */; };
+		23909E89292F589600A13E62 /* AlertTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E88292F589600A13E62 /* AlertTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		23909E82292E543500A13E62 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		23909E84292F4F2900A13E62 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		23909E86292F4F4200A13E62 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
+		23909E88292F589600A13E62 /* AlertTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				23909E82292E543500A13E62 /* HomeTVC.swift */,
+				23909E88292F589600A13E62 /* AlertTVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */,
 				23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */,
 				23909E83292E543500A13E62 /* HomeTVC.swift in Sources */,
+				23909E89292F589600A13E62 /* AlertTVC.swift in Sources */,
 				23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

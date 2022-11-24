@@ -278,7 +278,7 @@
                                                             <constraint firstAttribute="height" constant="150" id="I50-Zt-qEr"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="QWm-BE-M94">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlertTVC" rowHeight="70" id="QWm-BE-M94" customClass="AlertTVC" customModule="Smooches" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="50" width="333" height="70"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWm-BE-M94" id="zvh-3x-U9j">
@@ -307,6 +307,9 @@
                                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <state key="normal" title="Button"/>
                                                                                     <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
+                                                                                    <connections>
+                                                                                        <action selector="checkB:" destination="QWm-BE-M94" eventType="touchUpInside" id="HEQ-Zc-YyF"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,6 +328,11 @@
                                                                         <constraint firstAttribute="trailing" secondItem="YeV-kN-9Ra" secondAttribute="trailing" constant="10" id="zo0-2j-Imw"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="cardView" destination="YeV-kN-9Ra" id="NNd-Xz-MYA"/>
+                                                                    <outlet property="checkB" destination="3lU-Sz-fwp" id="ix1-Zw-DCf"/>
+                                                                    <outlet property="nameL" destination="OKg-Sn-so2" id="2fI-HC-97Y"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
@@ -398,6 +406,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="plus.square" catalog="system" title="Add"/>
                                                         <connections>
+                                                            <action selector="addB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="Qr7-0N-tWT"/>
                                                             <action selector="newMessageB:" destination="Lc4-uA-aP2" eventType="touchUpInside" id="u0n-2v-lUE"/>
                                                             <action selector="refreshB:" destination="9an-VX-WK4" eventType="touchUpInside" id="X97-bZ-Jnp"/>
                                                         </connections>
@@ -506,6 +515,7 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="nextB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eS-jn-LFS"/>
+                                                            <action selector="submitB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="CfN-Va-DuE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -590,6 +600,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ofc-k6-pM2"/>
+                    <connections>
+                        <outlet property="addB" destination="f1K-K3-IBx" id="pPd-xf-xv9"/>
+                        <outlet property="addContactsTableView" destination="e73-G1-aNo" id="JfH-zT-ax9"/>
+                        <outlet property="addContactsTableViewHeight" destination="cZx-l7-Zd8" id="HGR-vE-1Ty"/>
+                        <outlet property="contentViewBase" destination="sll-oM-Q1F" id="5eu-J1-49Q"/>
+                        <outlet property="endTimeT" destination="QO1-l2-n5h" id="Oqt-zz-ncW"/>
+                        <outlet property="messageT" destination="hD0-Mk-qrh" id="zCO-rP-ssM"/>
+                        <outlet property="reminderTypeT" destination="Oid-5I-oko" id="QF4-2K-KNs"/>
+                        <outlet property="scrollViewContentView" destination="Sdr-JM-7KB" id="N4k-73-f0e"/>
+                        <outlet property="scrollViewContentViewHeight" destination="9TF-uz-3H1" id="ccK-pQ-YRC"/>
+                        <outlet property="scrollViewS" destination="LeO-iM-M4g" id="ucG-rB-gsG"/>
+                        <outlet property="startTimeT" destination="3bW-Zw-d9P" id="wcG-ca-NHc"/>
+                        <outlet property="submitB" destination="Cez-e6-ZrQ" id="xPb-PB-YbZ"/>
+                        <outlet property="tableView" destination="VmW-DB-jxn" id="qgz-ZI-CbQ"/>
+                        <outlet property="tableViewHeight" destination="I50-Zt-qEr" id="yyJ-ky-UZu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1B-I2-Q0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
