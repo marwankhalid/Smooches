@@ -64,7 +64,9 @@ class AlertVC: UIViewController {
     }
     
     @IBAction func addB(_ sender: Any) {
-        
+        let controller = storyboard?.instantiateViewController(withIdentifier: "SelectContactsVC") as! SelectContactsVC
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
     }
     
     @IBAction func submitB(_ sender: Any) {
