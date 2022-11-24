@@ -246,7 +246,60 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sll-oM-Q1F">
                                 <rect key="frame" x="30" y="89" width="333" height="699"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeO-iM-M4g">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="699"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-JM-7KB" userLabel="ContentView">
+                                                <rect key="frame" x="0.0" y="0.0" width="333" height="800"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Week days to restrict the message to those days only (Optional)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ky-ee-ak1">
+                                                        <rect key="frame" x="10" y="45" width="313" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="vxb-sx-K5h"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                        <color key="textColor" red="0.18039217590000001" green="0.40784314269999999" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule your Messages!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rU-no-wPA">
+                                                        <rect key="frame" x="10" y="10" width="313" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="4qp-MZ-0rb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                        <color key="textColor" red="0.18039217590000001" green="0.40784314269999999" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="5Ky-ee-ak1" firstAttribute="top" secondItem="5rU-no-wPA" secondAttribute="bottom" constant="10" id="0UM-cc-E2Y"/>
+                                                    <constraint firstItem="5Ky-ee-ak1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="3bg-eF-f9h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5rU-no-wPA" secondAttribute="trailing" constant="10" id="6La-Tm-anG"/>
+                                                    <constraint firstAttribute="height" constant="800" id="9TF-uz-3H1"/>
+                                                    <constraint firstItem="5rU-no-wPA" firstAttribute="top" secondItem="Sdr-JM-7KB" secondAttribute="top" constant="10" id="CJY-PO-NNn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5Ky-ee-ak1" secondAttribute="trailing" constant="10" id="aXC-1M-Qah"/>
+                                                    <constraint firstItem="5rU-no-wPA" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="qAW-TH-QtL"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Sdr-JM-7KB" firstAttribute="top" secondItem="LeO-iM-M4g" secondAttribute="top" id="9Ni-cn-GUN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sdr-JM-7KB" secondAttribute="trailing" id="Smd-dX-B9V"/>
+                                            <constraint firstItem="Sdr-JM-7KB" firstAttribute="leading" secondItem="LeO-iM-M4g" secondAttribute="leading" id="cdA-UP-tmX"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sdr-JM-7KB" secondAttribute="bottom" id="fSb-9O-emz"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="LeO-iM-M4g" firstAttribute="top" secondItem="sll-oM-Q1F" secondAttribute="top" id="41z-iq-jHA"/>
+                                    <constraint firstAttribute="bottom" secondItem="LeO-iM-M4g" secondAttribute="bottom" id="JMA-4B-iPy"/>
+                                    <constraint firstItem="LeO-iM-M4g" firstAttribute="leading" secondItem="sll-oM-Q1F" secondAttribute="leading" id="Kwq-oe-wfM"/>
+                                    <constraint firstItem="Sdr-JM-7KB" firstAttribute="width" secondItem="sll-oM-Q1F" secondAttribute="width" id="TfE-v7-MTv"/>
+                                    <constraint firstAttribute="trailing" secondItem="LeO-iM-M4g" secondAttribute="trailing" id="gUM-3R-GVl"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qaj-In-zRg"/>
