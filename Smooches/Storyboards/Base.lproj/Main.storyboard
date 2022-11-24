@@ -633,33 +633,33 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tZ-vJ-ZLQ">
-                                        <rect key="frame" x="343" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="303" y="10" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="9Li-36-kqu"/>
+                                            <constraint firstAttribute="width" constant="80" id="9Li-36-kqu"/>
                                             <constraint firstAttribute="height" constant="30" id="xKr-te-jwb"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="doneB:" destination="LJo-eQ-q2L" eventType="touchUpInside" id="iZT-rd-RKH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbH-xW-N7R">
-                                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="10" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="3IW-Av-5nm"/>
+                                            <constraint firstAttribute="width" constant="80" id="3IW-Av-5nm"/>
                                             <constraint firstAttribute="height" constant="30" id="vaZ-XP-ec5"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="dismissB:" destination="LJo-eQ-q2L" eventType="touchUpInside" id="Goy-zW-2gE"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-JN-AwX">
-                                        <rect key="frame" x="70" y="15" width="253" height="20"/>
+                                        <rect key="frame" x="110" y="15" width="173" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="BRE-vp-6Vh"/>
                                         </constraints>
@@ -675,8 +675,8 @@
                                     <constraint firstAttribute="height" constant="50" id="JRo-TT-TOi"/>
                                     <constraint firstItem="AbH-xW-N7R" firstAttribute="centerY" secondItem="LYa-Zs-3GL" secondAttribute="centerY" id="Jf4-in-6Dp"/>
                                     <constraint firstItem="nDZ-JN-AwX" firstAttribute="leading" secondItem="AbH-xW-N7R" secondAttribute="trailing" constant="20" id="Mqk-ja-QS5"/>
-                                    <constraint firstAttribute="trailing" secondItem="2tZ-vJ-ZLQ" secondAttribute="trailing" constant="20" id="nKw-5C-QmQ"/>
-                                    <constraint firstItem="AbH-xW-N7R" firstAttribute="leading" secondItem="LYa-Zs-3GL" secondAttribute="leading" constant="20" id="qnk-Xi-aIG"/>
+                                    <constraint firstAttribute="trailing" secondItem="2tZ-vJ-ZLQ" secondAttribute="trailing" constant="10" id="nKw-5C-QmQ"/>
+                                    <constraint firstItem="AbH-xW-N7R" firstAttribute="leading" secondItem="LYa-Zs-3GL" secondAttribute="leading" constant="10" id="qnk-Xi-aIG"/>
                                     <constraint firstItem="2tZ-vJ-ZLQ" firstAttribute="leading" secondItem="nDZ-JN-AwX" secondAttribute="trailing" constant="20" id="xGx-ae-g4h"/>
                                 </constraints>
                             </view>
@@ -945,7 +945,6 @@
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
