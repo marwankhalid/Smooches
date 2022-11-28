@@ -82,7 +82,7 @@ class HomeVC: UIViewController {
     }
     
     private func setupViews(){
-        refreshB.backgroundColor = .white
+        refreshB.backgroundColor = .link
         refreshB.layer.shadowColor = UIColor.gray.cgColor
         refreshB.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         refreshB.layer.shadowRadius = 1.0

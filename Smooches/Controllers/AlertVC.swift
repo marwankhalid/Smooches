@@ -61,11 +61,12 @@ class AlertVC: UIViewController {
     
     private func setupViews(){
         submitB.layer.cornerRadius = submitB.bounds.height / 2
-        addB.backgroundColor = .white
+        addB.backgroundColor = .link
         addB.layer.shadowColor = UIColor.gray.cgColor
         addB.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         addB.layer.shadowRadius = 1.0
         addB.layer.shadowOpacity = 0.7
+        addB.titleLabel?.textColor = .white
         addB.layer.cornerRadius = addB.bounds.height / 2
         contentViewBase.layer.cornerRadius = 20
         scrollViewS.layer.cornerRadius = 20
@@ -135,7 +136,8 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         if tableView == self.tableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AlertTVC", for: indexPath) as! AlertTVC
             cell.checkB.setTitle("", for: .normal)
-            cell.cardView.backgroundColor = .white
+            cell.nameL.textColor = .label
+            cell.cardView.backgroundColor = .systemBackground
             cell.cardView.layer.cornerRadius = 10.0
             cell.cardView.layer.shadowColor = UIColor.gray.cgColor
             cell.cardView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -145,7 +147,9 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as! HomeTVC
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
-        cell.cardV.backgroundColor = .white
+        cell.cardV.backgroundColor = .systemBackground
+        cell.nameL.textColor = .label
+        cell.phoneL.textColor = .label
         cell.cardV.layer.cornerRadius = 10.0
         cell.cardV.layer.shadowColor = UIColor.gray.cgColor
         cell.cardV.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
