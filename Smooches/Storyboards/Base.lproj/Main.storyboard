@@ -404,7 +404,9 @@
                                                             <constraint firstAttribute="height" constant="40" id="ACY-fW-In1"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="plus.square" catalog="system" title="Add"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="plus.square" catalog="system" title="Add">
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="addB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="Qr7-0N-tWT"/>
                                                             <action selector="newMessageB:" destination="Lc4-uA-aP2" eventType="touchUpInside" id="u0n-2v-lUE"/>
@@ -518,15 +520,31 @@
                                                             <action selector="submitB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="CfN-Va-DuE"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5U-0c-AFb">
+                                                        <rect key="frame" x="298" y="0.0" width="30" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="i0E-E8-51q"/>
+                                                            <constraint firstAttribute="height" constant="30" id="iS0-b1-i5I"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="closeB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="SAO-HK-e0n"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="5Ky-ee-ak1" firstAttribute="top" secondItem="5rU-no-wPA" secondAttribute="bottom" constant="10" id="0UM-cc-E2Y"/>
                                                     <constraint firstAttribute="trailing" secondItem="hD0-Mk-qrh" secondAttribute="trailing" constant="10" id="0nz-GV-kH6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="x5U-0c-AFb" secondAttribute="trailing" constant="5" id="27g-oX-421"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="2go-Bi-f0d"/>
                                                     <constraint firstItem="5Ky-ee-ak1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="3bg-eF-f9h"/>
                                                     <constraint firstItem="Ocm-tY-Gwn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="4U5-yv-3VW"/>
                                                     <constraint firstAttribute="trailing" secondItem="zNC-4F-BmM" secondAttribute="trailing" constant="10" id="4x0-SZ-kyr"/>
+                                                    <constraint firstItem="x5U-0c-AFb" firstAttribute="top" secondItem="Sdr-JM-7KB" secondAttribute="top" id="5uw-tD-hsV"/>
                                                     <constraint firstItem="pDV-Xr-E1f" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="63k-iV-g0O"/>
                                                     <constraint firstAttribute="trailing" secondItem="e73-G1-aNo" secondAttribute="trailing" id="68J-1i-4fT"/>
                                                     <constraint firstAttribute="trailing" secondItem="5rU-no-wPA" secondAttribute="trailing" constant="10" id="6La-Tm-anG"/>
@@ -604,6 +622,7 @@
                         <outlet property="addB" destination="f1K-K3-IBx" id="pPd-xf-xv9"/>
                         <outlet property="addContactsTableView" destination="e73-G1-aNo" id="JfH-zT-ax9"/>
                         <outlet property="addContactsTableViewHeight" destination="cZx-l7-Zd8" id="HGR-vE-1Ty"/>
+                        <outlet property="closeB" destination="x5U-0c-AFb" id="dVc-0d-ukb"/>
                         <outlet property="contentViewBase" destination="sll-oM-Q1F" id="5eu-J1-49Q"/>
                         <outlet property="endTimeT" destination="QO1-l2-n5h" id="Oqt-zz-ncW"/>
                         <outlet property="messageT" destination="hD0-Mk-qrh" id="zCO-rP-ssM"/>
@@ -686,7 +705,6 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="kTg-Us-YhG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-d5-hpz">
@@ -946,6 +964,7 @@
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

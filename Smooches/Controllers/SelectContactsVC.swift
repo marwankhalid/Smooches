@@ -62,7 +62,9 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
-        cell.cardV.backgroundColor = .white
+        cell.cardV.backgroundColor = .systemBackground
+        cell.nameL.textColor = .label
+        cell.phoneL.textColor = .label
         cell.cardV.layer.cornerRadius = 10.0
         cell.cardV.layer.shadowColor = UIColor.gray.cgColor
         cell.cardV.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)

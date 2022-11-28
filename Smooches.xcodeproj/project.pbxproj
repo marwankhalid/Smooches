@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		233753F82934B01C003E5CA7 /* PhoneContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233753F72934B01C003E5CA7 /* PhoneContacts.swift */; };
 		233753FA2934B083003E5CA7 /* PhoneContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233753F92934B083003E5CA7 /* PhoneContact.swift */; };
+		233753FC2934BAD3003E5CA7 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233753FB2934BAD3003E5CA7 /* Week.swift */; };
 		23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E65292B88CF00A13E62 /* AppDelegate.swift */; };
 		23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E67292B88CF00A13E62 /* SceneDelegate.swift */; };
 		23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E69292B88CF00A13E62 /* AddContactsVC.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		233753F72934B01C003E5CA7 /* PhoneContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContacts.swift; sourceTree = "<group>"; };
 		233753F92934B083003E5CA7 /* PhoneContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContact.swift; sourceTree = "<group>"; };
+		233753FB2934BAD3003E5CA7 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		23909E62292B88CF00A13E62 /* Smooches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smooches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23909E65292B88CF00A13E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23909E67292B88CF00A13E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				233753F92934B083003E5CA7 /* PhoneContact.swift */,
+				233753FB2934BAD3003E5CA7 /* Week.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				23909E81292E542600A13E62 /* HomeVC.swift in Sources */,
 				23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */,
 				23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */,
+				233753FC2934BAD3003E5CA7 /* Week.swift in Sources */,
 				23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */,
 				23909E83292E543500A13E62 /* HomeTVC.swift in Sources */,
 				233753FA2934B083003E5CA7 /* PhoneContact.swift in Sources */,

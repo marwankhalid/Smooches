@@ -7,12 +7,6 @@
 
 import UIKit
 
-struct Week {
-    var name:String
-}
-extension Week {
-    static let data:[Week] = [Week(name: "Monday"),Week(name: "Tuesday"),Week(name: "Wednesday"),Week(name: "Thursday"),Week(name: "Friday"),Week(name: "Saturday"),Week(name: "Sunday")]
-}
 
 class AlertVC: UIViewController {
     
@@ -31,6 +25,7 @@ class AlertVC: UIViewController {
     @IBOutlet weak var messageT: UITextView!
     @IBOutlet weak var submitB: UIButton!
     
+    @IBOutlet weak var closeB: UIButton!
     
     var dataSource = [Week]()
     
@@ -59,6 +54,9 @@ class AlertVC: UIViewController {
         self.view.frame.origin.y = 0
     }
     
+    @IBAction func closeB(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     private func setupViews(){
         submitB.layer.cornerRadius = submitB.bounds.height / 2
         addB.backgroundColor = .link
@@ -66,10 +64,11 @@ class AlertVC: UIViewController {
         addB.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         addB.layer.shadowRadius = 1.0
         addB.layer.shadowOpacity = 0.7
-        addB.titleLabel?.textColor = .white
         addB.layer.cornerRadius = addB.bounds.height / 2
         contentViewBase.layer.cornerRadius = 20
         scrollViewS.layer.cornerRadius = 20
+        //closeB.layer.cornerRadius = 20
+        closeB.setTitle("", for: .normal)
         
     }
     
@@ -135,6 +134,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.tableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AlertTVC", for: indexPath) as! AlertTVC
+            cell.selectionStyle = .none
             cell.checkB.setTitle("", for: .normal)
             cell.nameL.textColor = .label
             cell.cardView.backgroundColor = .systemBackground
@@ -146,6 +146,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as! HomeTVC
+        cell.selectionStyle = .none
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .systemBackground
         cell.nameL.textColor = .label
