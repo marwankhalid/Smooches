@@ -24,10 +24,9 @@ class HomeVC: UIViewController {
         //getContacts()
         self.phoneContacts = UserDefaultsConstants.getDataFromUserDefaults() ?? [PhoneContact]()
         tableView.reloadData()
+        self.navigationController?.navigationBar.isHidden = true
         
     }
-    
-    
     
     private func setupViews(){
         refreshB.backgroundColor = .link
