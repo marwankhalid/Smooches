@@ -91,7 +91,7 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func refreshB(_ sender: Any) {
-        
+        getContacts()
     }
     
 }
@@ -112,7 +112,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
         cell.nameL.text = phoneContacts[indexPath.row].name
-        cell.phoneL.text = phoneContacts[indexPath.row].phoneNumber.description
+        cell.phoneL.text = phoneContacts[indexPath.row].phoneNumber.first?.description
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .white
         cell.cardV.layer.cornerRadius = 10.0
