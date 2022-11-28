@@ -8,18 +8,19 @@
 import UIKit
 
 class UserDefaultsConstants {
-    static public var signUpData = "contacts"
+    static public var contacts = "contacts"
+    static public var contactsFlag = "contactsFlag"
     
-    static public func getDataFromUserDefaults() -> PhoneContact?{
-        if let savedPerson = UserDefaults.standard.object(forKey: UserDefaultsConstants.signUpData) as? Data {
+    static public func getDataFromUserDefaults() -> [PhoneContact]?{
+        if let savedPerson = UserDefaults.standard.object(forKey: UserDefaultsConstants.contacts) as? Data {
             let decoder = JSONDecoder()
-            let model = try? decoder.decode(PhoneContact.self, from: savedPerson)
+            let model = try? decoder.decode([PhoneContact].self, from: savedPerson)
             return model
         }
         return nil
     }
     
-    static public func savedDataToUserDefaults(model:PhoneContact,key:String){
+    static public func savedDataToUserDefaults(model:[PhoneContact],key:String){
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(model) {
             let defaults = UserDefaults.standard
