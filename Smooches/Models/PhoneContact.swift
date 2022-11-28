@@ -8,7 +8,7 @@
 import Foundation
 import ContactsUI
 
-class PhoneContact: NSObject {
+class PhoneContact: NSObject,Encodable,Decodable {
 
     var name: String?
     var avatarData: Data?
