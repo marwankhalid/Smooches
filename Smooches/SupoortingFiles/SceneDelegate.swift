@@ -32,6 +32,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let rootNC = UINavigationController(rootViewController: rootVC)
             self.window?.rootViewController = rootNC
             self.window?.makeKeyAndVisible()
+        }else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let rootVC = storyboard.instantiateViewController(identifier: AddContactsVC.identifier) as? AddContactsVC else {
+                print("ViewController not found")
+                return
+            }
+            let rootNC = UINavigationController(rootViewController: rootVC)
+            self.window?.rootViewController = rootNC
+            self.window?.makeKeyAndVisible()
         }
         
         
