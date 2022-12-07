@@ -12,6 +12,8 @@ class MessagesVC: UIViewController {
     @IBOutlet weak var newMessageB: UIButton!
     @IBOutlet weak var firstCircleV: UIView!
     @IBOutlet weak var secondCircleV: UIView!
+    @IBOutlet weak var postsV: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

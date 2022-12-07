@@ -206,7 +206,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="650"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="rgU-Qw-hXd">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTVC" rowHeight="250" id="rgU-Qw-hXd" customClass="MessageTVC" customModule="Smooches" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="250"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rgU-Qw-hXd" id="YE4-SC-yQj">
@@ -235,6 +235,9 @@
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="editB:" destination="rgU-Qw-hXd" eventType="touchUpInside" id="0Vb-J7-cft"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O39-gy-cfh">
                                                                     <rect key="frame" x="20" y="57" width="283" height="22"/>
@@ -287,6 +290,9 @@
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="xmark.bin.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="recycleB:" destination="rgU-Qw-hXd" eventType="touchUpInside" id="c43-Ky-RVs"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.18039217590000001" green="0.40784314269999999" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -323,6 +329,16 @@
                                                         <constraint firstAttribute="trailing" secondItem="bwa-Zb-HLb" secondAttribute="trailing" constant="10" id="yB3-z2-jTn"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="contentVIeww" destination="bwa-Zb-HLb" id="8qZ-G0-VqY"/>
+                                                    <outlet property="dateL" destination="2XX-3I-45q" id="MaF-tI-qdz"/>
+                                                    <outlet property="descriptionL" destination="O39-gy-cfh" id="zUA-p4-DLB"/>
+                                                    <outlet property="editB" destination="6Sm-78-ebj" id="Pml-mX-tl9"/>
+                                                    <outlet property="expirationTextL" destination="1Ah-Dc-h4s" id="qf8-2e-Yy6"/>
+                                                    <outlet property="recycleB" destination="PUh-9q-5bi" id="0lw-2H-MO5"/>
+                                                    <outlet property="timeL" destination="Gg6-bw-9Gi" id="wRj-0d-FUs"/>
+                                                    <outlet property="typeL" destination="OdP-bl-x1c" id="kh9-Ds-XDx"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -371,7 +387,9 @@
                     <connections>
                         <outlet property="firstCircleV" destination="cZk-ha-DMM" id="gof-Bz-C5l"/>
                         <outlet property="newMessageB" destination="jfG-g4-T3c" id="R8G-Hy-iol"/>
+                        <outlet property="postsV" destination="c3Q-xl-hfT" id="4C7-bs-Lpr"/>
                         <outlet property="secondCircleV" destination="rOc-vx-4zT" id="jDm-5O-dwO"/>
+                        <outlet property="tableView" destination="Wmu-58-1Me" id="VWy-Aq-aIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9b-fM-J6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
