@@ -1123,7 +1123,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krM-wn-hSi">
-                                <rect key="frame" x="20" y="269" width="353" height="20"/>
+                                <rect key="frame" x="40" y="269" width="333" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hHv-za-xIj"/>
                                 </constraints>
@@ -1169,7 +1169,7 @@
                             <constraint firstItem="Vgk-W5-A7k" firstAttribute="top" secondItem="MzN-0n-VoG" secondAttribute="bottom" constant="5" id="CYH-zC-6D0"/>
                             <constraint firstItem="POV-JA-LDi" firstAttribute="trailing" secondItem="MzN-0n-VoG" secondAttribute="trailing" constant="20" id="GZm-4d-WGn"/>
                             <constraint firstItem="POV-JA-LDi" firstAttribute="trailing" secondItem="2Nj-3f-abU" secondAttribute="trailing" constant="20" id="Jm6-cr-vNa"/>
-                            <constraint firstItem="krM-wn-hSi" firstAttribute="leading" secondItem="POV-JA-LDi" secondAttribute="leading" constant="20" id="JuG-dt-mEn"/>
+                            <constraint firstItem="krM-wn-hSi" firstAttribute="leading" secondItem="POV-JA-LDi" secondAttribute="leading" constant="40" id="JuG-dt-mEn"/>
                             <constraint firstItem="MzN-0n-VoG" firstAttribute="leading" secondItem="kk9-fV-6wx" secondAttribute="leading" constant="40" id="NH0-TY-Hwk"/>
                             <constraint firstItem="2Nj-3f-abU" firstAttribute="leading" secondItem="POV-JA-LDi" secondAttribute="leading" constant="20" id="QEy-P9-xz3"/>
                             <constraint firstItem="Jmw-ee-Zbi" firstAttribute="top" secondItem="Cxo-Oi-1vF" secondAttribute="bottom" constant="5" id="U90-Rw-uZI"/>
