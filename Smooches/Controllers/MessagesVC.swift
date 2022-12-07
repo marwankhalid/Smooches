@@ -49,3 +49,36 @@ class MessagesVC: UIViewController {
         self.present(cont, animated: true)
     }
 }
+
+
+extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
+    private func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 250
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MessageTVC.identifier, for: indexPath) as! MessageTVC
+        cell.selectionStyle = .none
+        cell.descriptionL.numberOfLines = 0
+        cell.descriptionL.sizeToFit()
+        cell.contentVIeww.layer.cornerRadius = 10.0
+        cell.contentVIeww.layer.shadowColor = UIColor.gray.cgColor
+        cell.contentVIeww.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        cell.contentVIeww.layer.shadowRadius = 1.0
+        cell.contentVIeww.layer.shadowOpacity = 0.7
+        return cell
+    }
+    
+    private func tableView(tableView: UITableView,heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+}
