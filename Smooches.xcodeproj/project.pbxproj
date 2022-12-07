@@ -13,6 +13,7 @@
 		233753FE2934BB13003E5CA7 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233753FD2934BB13003E5CA7 /* Identifiers.swift */; };
 		233754002934BB31003E5CA7 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233753FF2934BB31003E5CA7 /* Defaults.swift */; };
 		233754022934BB50003E5CA7 /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233754012934BB50003E5CA7 /* UserDefaultsConstants.swift */; };
+		235414142940E71E004BD37B /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235414132940E71E004BD37B /* MessageTVC.swift */; };
 		23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E65292B88CF00A13E62 /* AppDelegate.swift */; };
 		23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E67292B88CF00A13E62 /* SceneDelegate.swift */; };
 		23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E69292B88CF00A13E62 /* AddContactsVC.swift */; };
@@ -34,6 +35,7 @@
 		233753FD2934BB13003E5CA7 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		233753FF2934BB31003E5CA7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		233754012934BB50003E5CA7 /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
+		235414132940E71E004BD37B /* MessageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
 		23909E62292B88CF00A13E62 /* Smooches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smooches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23909E65292B88CF00A13E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23909E67292B88CF00A13E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				23909E82292E543500A13E62 /* HomeTVC.swift */,
 				23909E88292F589600A13E62 /* AlertTVC.swift */,
+				235414132940E71E004BD37B /* MessageTVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				233753FA2934B083003E5CA7 /* PhoneContact.swift in Sources */,
 				233753FE2934BB13003E5CA7 /* Identifiers.swift in Sources */,
 				233753F82934B01C003E5CA7 /* PhoneContacts.swift in Sources */,
+				235414142940E71E004BD37B /* MessageTVC.swift in Sources */,
 				23909E89292F589600A13E62 /* AlertTVC.swift in Sources */,
 				23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */,
 			);
