@@ -60,8 +60,9 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView ==  tableView {
-            tableView.beginUpdates()
+            print(1111)
             if self.expanded {
+                tableView.beginUpdates()
                 let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
                 let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
                 cell.descriptionL.numberOfLines = 4
@@ -73,12 +74,11 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
                 underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
                 cell.descriptionL.attributedText = underlineAttriString
                 tableView.rowHeight = UITableView.automaticDimension
-                tableView.endUpdates()
                 self.expanded = false
+//               tableView.reloadRows(at: [IndexPath(row: self.index!, section: 0)], with: .automatic)
+                tableView.endUpdates()
             }
-            
         }
-        
     }
     
     private func setupTableView(){
@@ -150,8 +150,8 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
                 underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
                 cell.descriptionL.attributedText = underlineAttriString
                 tableView.rowHeight = UITableView.automaticDimension
-                tableView.endUpdates()
                 self.expanded = true
+                tableView.endUpdates()
             }else {
                 print("None")
             }
