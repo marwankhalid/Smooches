@@ -20,6 +20,7 @@ class MessagesVC: UIViewController {
         
         setupViews()
         setupTabbar()
+        setupTableView()
         
     }
     
@@ -68,6 +69,8 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MessageTVC.identifier, for: indexPath) as! MessageTVC
         cell.selectionStyle = .none
         cell.descriptionL.numberOfLines = 0
+        cell.editB.setTitle("", for: .normal)
+        cell.recycleB.setTitle("", for: .normal)
         cell.descriptionL.sizeToFit()
         cell.contentVIeww.layer.cornerRadius = 10.0
         cell.contentVIeww.layer.shadowColor = UIColor.gray.cgColor
