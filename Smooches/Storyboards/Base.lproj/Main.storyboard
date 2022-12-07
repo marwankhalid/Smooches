@@ -229,7 +229,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="message.fill" catalog="system" id="TiP-Bk-zIc"/>
                     <connections>
+                        <outlet property="firstCircleV" destination="cZk-ha-DMM" id="gof-Bz-C5l"/>
                         <outlet property="newMessageB" destination="jfG-g4-T3c" id="R8G-Hy-iol"/>
+                        <outlet property="secondCircleV" destination="rOc-vx-4zT" id="jDm-5O-dwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9b-fM-J6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -25,8 +25,21 @@ class HomeVC: UIViewController {
         self.phoneContacts = UserDefaultsConstants.getDataFromUserDefaults() ?? [PhoneContact]()
         tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
-        
+        setupTabbar()
     }
+    
+    public func setupTabbar(){
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .systemBackground
+           
+            self.tabBarController?.tabBar.standardAppearance = appearance
+            self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBar.standardAppearance
+        }
+    }
+    
     
     private func setupViews(){
         refreshB.backgroundColor = .link
