@@ -28,6 +28,15 @@ class MessagesVC: UIViewController {
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(123)
+        for i in self.view.subviews {
+            i.alpha = 1
+        }
+    }
+    
     private func setupViews(){
         firstCircleV.layer.cornerRadius = firstCircleV.bounds.height / 2
         secondCircleV.layer.cornerRadius = secondCircleV.bounds.height / 2
@@ -204,6 +213,16 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         if gesture.didTapAttributedTextInLabel(label: cell.expirationTextL, inRange: termsRange) {
             print("Tapped terms")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        for i in self.view.subviews {
+//            i.alpha = 0.5
+//        }
+        let controller = storyboard?.instantiateViewController(withIdentifier: DeleteAlertVC.identifier) as! DeleteAlertVC
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(controller, animated: true)
     }
     
     private func tableView(tableView: UITableView,heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -1217,6 +1217,101 @@
             </objects>
             <point key="canvasLocation" x="120" y="671"/>
         </scene>
+        <!--Delete AlertVC-->
+        <scene sceneID="it7-wx-zSy">
+            <objects>
+                <viewController storyboardIdentifier="DeleteAlertVC" id="X5T-c8-FXi" customClass="DeleteAlertVC" customModule="Smooches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6F0-Qx-6kM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77b-fa-g5f">
+                                <rect key="frame" x="40" y="301" width="313" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-bY-ZmU">
+                                        <rect key="frame" x="20" y="30" width="273" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="hIn-aD-f53"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to delete this Message?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-WT-SPV">
+                                        <rect key="frame" x="20" y="62" width="273" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="Qd3-iU-6m8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rS8-lJ-Y4w">
+                                        <rect key="frame" x="20" y="110" width="273" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-7X-s8Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="55"/>
+                                                <color key="backgroundColor" red="0.98431372640000003" green="0.91764706370000004" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="YES">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="yesB:" destination="X5T-c8-FXi" eventType="touchUpInside" id="uhh-jm-qrk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNf-CZ-DrV">
+                                                <rect key="frame" x="0.0" y="65" width="273" height="55"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="NO">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="noB:" destination="X5T-c8-FXi" eventType="touchUpInside" id="xAd-6A-cVL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="jmA-yL-xe7"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SEC-WT-SPV" secondAttribute="trailing" constant="20" id="9jM-qB-6Yl"/>
+                                    <constraint firstAttribute="height" constant="250" id="Hrb-8d-5FK"/>
+                                    <constraint firstItem="rS8-lJ-Y4w" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="Vmd-9v-HaZ"/>
+                                    <constraint firstItem="Yrk-bY-ZmU" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="dPS-Qw-eMf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yrk-bY-ZmU" secondAttribute="trailing" constant="20" id="g9G-OR-RTT"/>
+                                    <constraint firstAttribute="bottom" secondItem="rS8-lJ-Y4w" secondAttribute="bottom" constant="20" id="hng-hb-j9L"/>
+                                    <constraint firstItem="SEC-WT-SPV" firstAttribute="top" secondItem="Yrk-bY-ZmU" secondAttribute="bottom" constant="10" id="iH9-4n-D8L"/>
+                                    <constraint firstAttribute="trailing" secondItem="rS8-lJ-Y4w" secondAttribute="trailing" constant="20" id="qYc-PT-fgM"/>
+                                    <constraint firstItem="Yrk-bY-ZmU" firstAttribute="top" secondItem="77b-fa-g5f" secondAttribute="top" constant="30" id="vBJ-uy-Tf9"/>
+                                    <constraint firstItem="SEC-WT-SPV" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="wM3-St-a0W"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kth-pZ-rAr"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kth-pZ-rAr" firstAttribute="trailing" secondItem="77b-fa-g5f" secondAttribute="trailing" constant="40" id="Pdx-v0-ncq"/>
+                            <constraint firstItem="77b-fa-g5f" firstAttribute="centerY" secondItem="6F0-Qx-6kM" secondAttribute="centerY" id="dXS-DH-LzF"/>
+                            <constraint firstItem="77b-fa-g5f" firstAttribute="leading" secondItem="kth-pZ-rAr" secondAttribute="leading" constant="40" id="gWu-AD-scL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g03-ZE-VRB"/>
+                    <connections>
+                        <outlet property="alertV" destination="77b-fa-g5f" id="qOh-s5-e8V"/>
+                        <outlet property="noB" destination="tNf-CZ-DrV" id="e3u-rq-Z5M"/>
+                        <outlet property="yesB" destination="5DF-7X-s8Q" id="ps2-pg-P5b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpx-B9-mOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="2118"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
@@ -1238,6 +1333,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
