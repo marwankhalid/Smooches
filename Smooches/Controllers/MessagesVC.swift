@@ -17,6 +17,7 @@ class MessagesVC: UIViewController {
     
     var cell:MessageTVC?
     var index:Int?
+    var expanded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,30 @@ class MessagesVC: UIViewController {
 
 
 extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView ==  tableView {
+            tableView.beginUpdates()
+            if self.expanded {
+                let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
+                let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
+                cell.descriptionL.numberOfLines = 4
+                cell.sizeToFit()
+                tableView.estimatedRowHeight = 300
+                let underlineAttriString = NSMutableAttributedString(string: more)
+                let range1 = (more as NSString).range(of: "Readmore")
+                underlineAttriString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 15), range: range1)
+                underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
+                cell.descriptionL.attributedText = underlineAttriString
+                tableView.rowHeight = UITableView.automaticDimension
+                tableView.endUpdates()
+                self.expanded = false
+            }
+            
+        }
+        
+    }
+    
     private func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -74,17 +99,11 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         cell.editB.setTitle("", for: .normal)
         cell.recycleB.setTitle("", for: .normal)
         cell = self.setupExpirationLabel(cell: cell, indexpath: indexPath) as! MessageTVC
-        //cell = self.setupDescriptionLabel(cell: cell, indexpath: indexPath) as! MessageTVC
-        let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-        cell.descriptionL.text = more
-        cell.descriptionL.numberOfLines = 2
-        cell.descriptionL.isUserInteractionEnabled = true
-        let readmoreFont = UIFont(name: "Helvetica-Oblique", size: 14)
-        let readmoreFontColor = UIColor.orange
-        DispatchQueue.main.async {
-            cell.descriptionL.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont!, moreTextColor: readmoreFontColor)
-            cell.descriptionL.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapDescriptionLabel(gesture:))))
-        }
+        cell = self.setupDescriptionLabel(cell: &cell, indexpath: indexPath) as! MessageTVC
+        cell.typeL.layer.borderWidth = 1.0
+        cell.typeL.layer.cornerRadius = cell.typeL.bounds.height / 2
+        cell.typeL.layer.borderColor = UIColor.white.cgColor
+        
         cell.contentVIeww.layer.cornerRadius = 10.0
         cell.contentVIeww.layer.shadowColor = UIColor.gray.cgColor
         cell.contentVIeww.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -93,40 +112,72 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
-    private func setupDescriptionLabel(cell:MessageTVC,indexpath:IndexPath) -> UITableViewCell {
-        cell.descriptionL.numberOfLines = 2
+    private func setupDescriptionLabel(cell: inout MessageTVC,indexpath:IndexPath) -> UITableViewCell {
+        cell.descriptionL.numberOfLines = 4
         cell.descriptionL.sizeToFit()
         cell.descriptionL.text = ""
         cell.descriptionL.textAlignment = .left
-        let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. more"
-        let less = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. less"
-        let more1 = "more"
-        let less1 = "less"
-        cell.expirationTextL.textColor =  UIColor.white
+        let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
+        let more1 = "Readmore"
+        cell.descriptionL.textColor =  UIColor.white
         let underlineAttriString = NSMutableAttributedString(string: more)
         let range1 = (more as NSString).range(of: more1)
-             underlineAttriString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range1)
-        underlineAttriString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 16), range: range1)
-        underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range1)
+        underlineAttriString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 15), range: range1)
+        underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
         cell.descriptionL.attributedText = underlineAttriString
         cell.descriptionL.isUserInteractionEnabled = true
         cell.descriptionL.lineBreakMode = .byTruncatingMiddle
-
         cell.descriptionL.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapDescriptionLabel(gesture:))))
         self.index = indexpath.row
         return cell
     }
     
-    @objc func tapDescriptionLabel(gesture:UITapGestureRecognizer) {
-        //let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
-        let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Readmore"
-        let termsRange = (more as NSString).range(of: "Readmore")
-        let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
-        if gesture.didTapAttributedTextInLabel(label: cell.descriptionL, inRange: termsRange) {
-            print("Tapped terms")
+    @objc func tapDescriptionLabel(gesture:UITapGestureRecognizer){
+        if !self.expanded {
+            tableView.beginUpdates()
+            let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
+            let termsRange = (more as NSString).range(of: "Readmore")
+            let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
+            if gesture.didTapAttributedTextInLabel(label: cell.descriptionL, inRange: termsRange) {
+                print(123)
+                cell.descriptionL.numberOfLines = 0
+                cell.sizeToFit()
+                tableView.estimatedRowHeight = 300
+                let less = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readless"
+                let underlineAttriString = NSMutableAttributedString(string: less)
+                let range1 = (less as NSString).range(of: "Readless")
+                underlineAttriString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 15), range: range1)
+                underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
+                cell.descriptionL.attributedText = underlineAttriString
+                tableView.rowHeight = UITableView.automaticDimension
+                tableView.endUpdates()
+                self.expanded = true
+            }else {
+                print("None")
+            }
         }else {
-            print("None")
+            tableView.beginUpdates()
+            let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
+            let termsRange = (more as NSString).range(of: "Readmore")
+            let cell = tableView.cellForRow(at: IndexPath(row: self.index!, section: 0)) as! MessageTVC
+            if gesture.didTapAttributedTextInLabel(label: cell.descriptionL, inRange: termsRange) {
+                print(123)
+                cell.descriptionL.numberOfLines = 4
+                cell.sizeToFit()
+                tableView.estimatedRowHeight = 300
+                let underlineAttriString = NSMutableAttributedString(string: more)
+                let range1 = (more as NSString).range(of: "Readmore")
+                underlineAttriString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 15), range: range1)
+                underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
+                cell.descriptionL.attributedText = underlineAttriString
+                tableView.rowHeight = UITableView.automaticDimension
+                tableView.endUpdates()
+                self.expanded = false
+            }else {
+                print("None")
+            }
         }
+        
     }
     
     private func setupExpirationLabel(cell:MessageTVC,indexpath:IndexPath) -> UITableViewCell{
