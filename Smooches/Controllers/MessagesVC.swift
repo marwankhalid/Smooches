@@ -16,7 +16,15 @@ class MessagesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
         setupTabbar()
+        
+    }
+    
+    private func setupViews(){
+        firstCircleV.layer.cornerRadius = firstCircleV.bounds.height / 2
+        secondCircleV.layer.cornerRadius = secondCircleV.bounds.height / 2
+        newMessageB.layer.cornerRadius = newMessageB.bounds.height / 2
         
     }
     
