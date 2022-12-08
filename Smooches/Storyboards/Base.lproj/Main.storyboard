@@ -584,7 +584,7 @@
                                                                 <rect key="frame" x="0.0" y="50" width="333" height="70"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="paJ-YJ-YUj" id="05p-Dz-5aL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="540" height="70"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-UU-ahb">
@@ -769,7 +769,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qaj-In-zRg"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sll-oM-Q1F" firstAttribute="leading" secondItem="qaj-In-zRg" secondAttribute="leading" constant="30" id="1XA-M4-T3e"/>
                             <constraint firstItem="qaj-In-zRg" firstAttribute="bottom" secondItem="sll-oM-Q1F" secondAttribute="bottom" constant="30" id="Kbq-v2-mNT"/>
@@ -1294,7 +1294,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kth-pZ-rAr"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kth-pZ-rAr" firstAttribute="trailing" secondItem="77b-fa-g5f" secondAttribute="trailing" constant="40" id="Pdx-v0-ncq"/>
                             <constraint firstItem="77b-fa-g5f" firstAttribute="centerY" secondItem="6F0-Qx-6kM" secondAttribute="centerY" id="dXS-DH-LzF"/>

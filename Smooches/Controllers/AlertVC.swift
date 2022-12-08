@@ -24,14 +24,47 @@ class AlertVC: UIViewController {
     @IBOutlet weak var addContactsTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var messageT: UITextView!
     @IBOutlet weak var submitB: UIButton!
-    
     @IBOutlet weak var closeB: UIButton!
+    var pickerView:UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .white
+        return v
+    }()
+    
+    var cancel:UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitle("Cancel", for: .normal)
+        b.setTitleColor(UIColor.link, for: .normal)
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        return b
+    }()
+    
+    var ok:UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitle("ok", for: .normal)
+        b.setTitleColor(UIColor.link, for: .normal)
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        return b
+    }()
+    
+    var timePicker:UIDatePicker = {
+        let timepicker = UIDatePicker()
+        timepicker.translatesAutoresizingMaskIntoConstraints = false
+        timepicker.backgroundColor = UIColor.gray
+        timepicker.datePickerMode = UIDatePicker.Mode.time
+        if #available(iOS 13.4, *) {
+            timepicker.preferredDatePickerStyle = .wheels
+        }
+        return timepicker
+    }()
     
     var dataSource = [Week]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         dataSource = Week.data
         setupTableView()
@@ -39,6 +72,37 @@ class AlertVC: UIViewController {
         setupViews()
         setupTextView()
         notification()
+        setupDatePicker()
+        
+    }
+    
+    private func setupDatePicker(){
+        self.contentViewBase.addSubview(self.pickerView)
+        self.pickerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        self.pickerView.heightAnchor.constraint(equalToConstant: 320).isActive = true
+        self.pickerView.centerXAnchor.constraint(equalTo: contentViewBase.centerXAnchor).isActive = true
+        self.pickerView.centerYAnchor.constraint(equalTo: contentViewBase.centerYAnchor).isActive = true
+        
+        self.pickerView.addSubview(timePicker)
+        timePicker.leadingAnchor.constraint(equalTo: pickerView.leadingAnchor, constant: 10).isActive = true
+        timePicker.trailingAnchor.constraint(equalTo: pickerView.trailingAnchor,constant: 10).isActive = true
+        timePicker.topAnchor.constraint(equalTo: pickerView.topAnchor,constant: 10).isActive = true
+        timePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        self.pickerView.addSubview(cancel)
+        self.pickerView.addSubview(ok)
+        
+        cancel.topAnchor.constraint(equalTo: timePicker.bottomAnchor,constant: 10).isActive = true
+        cancel.leadingAnchor.constraint(equalTo: pickerView.leadingAnchor,constant: 20).isActive = true
+        cancel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        cancel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        ok.topAnchor.constraint(equalTo: timePicker.bottomAnchor,constant: 10).isActive = true
+        ok.trailingAnchor.constraint(equalTo: pickerView.trailingAnchor,constant: 50).isActive = true
+        ok.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        ok.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        pickerView.layer.cornerRadius = 20
+        self.pickerView.alpha = 0
     }
     
     private func notification(){
@@ -73,6 +137,47 @@ class AlertVC: UIViewController {
         //closeB.layer.cornerRadius = 20
         closeB.setTitle("", for: .normal)
         
+        
+        setupTextFields(textField: startTimeT, placeholder: "Start Time")
+        startTimeT.isUserInteractionEnabled = true
+        startTimeT.isEnabled = true
+        startTimeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapStartTime)))
+        setupTextFields(textField: endTimeT, placeholder: "End Time")
+        endTimeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEndTime)))
+        endTimeT.isEnabled = true
+        setupTextFields(textField: reminderTypeT, placeholder: "")
+        reminderTypeT.isEnabled = false
+        
+        
+    }
+    
+    @objc func tapStartTime(){
+        let controller = DatePickerAlertVC()
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(controller, animated: true)
+    }
+    
+    @objc func tapEndTime(){
+        let controller = DatePickerAlertVC()
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(controller, animated: true)
+    }
+    
+    private func setupTextFields(textField:UITextField,placeholder:String){
+        textField.delegate = self
+        textField.borderStyle = .none
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.link.cgColor
+        textField.layer.cornerRadius = textField.bounds.height / 2
+        textField.backgroundColor = .secondarySystemBackground
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        textField.setLeftPaddingPoints(20)
+        textField.setRightPaddingPoints(20)
     }
     
     private func setupTextView(){
@@ -125,6 +230,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         addContactsTableView.delegate = self
         addContactsTableView.dataSource = self
         addContactsTableView.rowHeight = 70
+        tableView.separatorStyle = .none
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -215,4 +321,11 @@ extension UIScrollView {
      let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
      self.setContentOffset(bottomOffset, animated: animated)
   }
+}
+
+
+extension AlertVC:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return false
+    }
 }

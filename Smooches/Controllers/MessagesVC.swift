@@ -57,10 +57,10 @@ class MessagesVC: UIViewController {
     }
 
     @IBAction func newMessageB(_ sender: Any) {
-        let cont = storyboard?.instantiateViewController(withIdentifier: "AlertVC") as! AlertVC
-        cont.isModalInPresentation = true
-        cont.modalPresentationStyle = .automatic
-        self.present(cont, animated: true)
+        let controller = storyboard?.instantiateViewController(withIdentifier: "AlertVC") as! AlertVC
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(controller, animated: true)
     }
 }
 
