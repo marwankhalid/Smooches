@@ -584,7 +584,7 @@
                                                                 <rect key="frame" x="0.0" y="50" width="333" height="70"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="paJ-YJ-YUj" id="05p-Dz-5aL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="540" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-UU-ahb">
