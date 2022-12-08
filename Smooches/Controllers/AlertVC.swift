@@ -150,15 +150,22 @@ class AlertVC: UIViewController {
         reminderTypeT.isEnabled = true
         reminderTypeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapReminderType)))
         
-
-        // The view to which the drop down will appear on
-        dropDown.anchorView = reminderTypeT // UIView or UIBarButtonItem
-
-        // The list of items to display. Can be changed dmynamically
+        dropDown.anchorView = reminderTypeT
         dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
         DropDown.startListeningToKeyboard()
-
-        // Will set a custom width instead of the anchor view width
+        dropDown.backgroundColor = .systemBackground
+        
+        if #available(iOS 13.0, *) {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                print("Dark mode")
+                dropDown.separatorColor = .white
+            }
+            else {
+                print("Light mode")
+                dropDown.separatorColor = .black
+            }
+        }
+        dropDown.textColor = .label
         
         
     }
