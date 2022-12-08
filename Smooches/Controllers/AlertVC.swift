@@ -158,13 +158,14 @@ class AlertVC: UIViewController {
         if #available(iOS 13.0, *) {
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 print("Dark mode")
-                dropDown.separatorColor = .white
+                dropDown.separatorColor = .lightText
             }
             else {
                 print("Light mode")
                 dropDown.separatorColor = .black
             }
         }
+        dropDown.selectionBackgroundColor = .secondarySystemBackground
         dropDown.textColor = .label
         
         
