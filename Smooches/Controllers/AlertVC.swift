@@ -154,7 +154,7 @@ class AlertVC: UIViewController {
         // The view to which the drop down will appear on
         dropDown.anchorView = reminderTypeT // UIView or UIBarButtonItem
 
-        // The list of items to display. Can be changed dynamically
+        // The list of items to display. Can be changed dmynamically
         dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
         DropDown.startListeningToKeyboard()
 

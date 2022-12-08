@@ -497,7 +497,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-zw-n1X">
-                                                        <rect key="frame" x="10" y="256" width="313" height="20"/>
+                                                        <rect key="frame" x="20" y="256" width="303" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="2lm-Kc-neJ"/>
                                                         </constraints>
@@ -514,7 +514,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-tY-Gwn">
-                                                        <rect key="frame" x="10" y="331" width="313" height="20"/>
+                                                        <rect key="frame" x="20" y="331" width="303" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="GVg-qK-7Ja"/>
                                                         </constraints>
@@ -531,7 +531,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNC-4F-BmM">
-                                                        <rect key="frame" x="10" y="406" width="313" height="20"/>
+                                                        <rect key="frame" x="20" y="406" width="303" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="znw-yA-oHa"/>
                                                         </constraints>
@@ -548,7 +548,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts (max 5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-Xr-E1f">
-                                                        <rect key="frame" x="10" y="481" width="313" height="20"/>
+                                                        <rect key="frame" x="20" y="481" width="303" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="6zR-mw-iTQ"/>
                                                         </constraints>
@@ -646,7 +646,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTv-LK-Cu1">
-                                                        <rect key="frame" x="10" y="571" width="313" height="20"/>
+                                                        <rect key="frame" x="20" y="571" width="303" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Z0K-bo-L2k"/>
                                                         </constraints>
@@ -662,7 +662,7 @@
                                                         </constraints>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-e6-ZrQ">
                                                         <rect key="frame" x="20" y="771" width="293" height="45"/>
@@ -702,10 +702,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="x5U-0c-AFb" secondAttribute="trailing" constant="5" id="27g-oX-421"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="2go-Bi-f0d"/>
                                                     <constraint firstItem="5Ky-ee-ak1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="3bg-eF-f9h"/>
-                                                    <constraint firstItem="Ocm-tY-Gwn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="4U5-yv-3VW"/>
+                                                    <constraint firstItem="Ocm-tY-Gwn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="4U5-yv-3VW"/>
                                                     <constraint firstAttribute="trailing" secondItem="zNC-4F-BmM" secondAttribute="trailing" constant="10" id="4x0-SZ-kyr"/>
                                                     <constraint firstItem="x5U-0c-AFb" firstAttribute="top" secondItem="Sdr-JM-7KB" secondAttribute="top" id="5uw-tD-hsV"/>
-                                                    <constraint firstItem="pDV-Xr-E1f" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="63k-iV-g0O"/>
+                                                    <constraint firstItem="pDV-Xr-E1f" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="63k-iV-g0O"/>
                                                     <constraint firstAttribute="trailing" secondItem="e73-G1-aNo" secondAttribute="trailing" id="68J-1i-4fT"/>
                                                     <constraint firstAttribute="trailing" secondItem="5rU-no-wPA" secondAttribute="trailing" constant="10" id="6La-Tm-anG"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="top" secondItem="zNC-4F-BmM" secondAttribute="bottom" constant="5" id="6bN-FF-XXT"/>
@@ -728,7 +728,7 @@
                                                     <constraint firstItem="QO1-l2-n5h" firstAttribute="top" secondItem="Ocm-tY-Gwn" secondAttribute="bottom" constant="5" id="TsO-HO-lLX"/>
                                                     <constraint firstAttribute="trailing" secondItem="VmW-DB-jxn" secondAttribute="trailing" id="VTe-SS-InS"/>
                                                     <constraint firstAttribute="trailing" secondItem="5Ky-ee-ak1" secondAttribute="trailing" constant="10" id="aXC-1M-Qah"/>
-                                                    <constraint firstItem="PTv-LK-Cu1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="eOS-gj-aur"/>
+                                                    <constraint firstItem="PTv-LK-Cu1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="eOS-gj-aur"/>
                                                     <constraint firstAttribute="trailing" secondItem="QO1-l2-n5h" secondAttribute="trailing" constant="10" id="eR4-BU-ZGJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="f1K-K3-IBx" secondAttribute="trailing" constant="20" id="g7g-AJ-1DM"/>
                                                     <constraint firstAttribute="trailing" secondItem="PTv-LK-Cu1" secondAttribute="trailing" constant="10" id="gsu-7w-JTQ"/>
@@ -736,13 +736,13 @@
                                                     <constraint firstItem="VmW-DB-jxn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" id="hH2-iC-L1J"/>
                                                     <constraint firstItem="QO1-l2-n5h" firstAttribute="top" secondItem="Ocm-tY-Gwn" secondAttribute="bottom" constant="5" id="k8D-Oa-pQH"/>
                                                     <constraint firstItem="e73-G1-aNo" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" id="k8X-Rr-00a"/>
-                                                    <constraint firstItem="zNC-4F-BmM" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="nDC-s2-g8a"/>
+                                                    <constraint firstItem="zNC-4F-BmM" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="nDC-s2-g8a"/>
                                                     <constraint firstAttribute="trailing" secondItem="mVN-zw-n1X" secondAttribute="trailing" constant="10" id="pfW-8M-EUQ"/>
                                                     <constraint firstItem="3bW-Zw-d9P" firstAttribute="top" secondItem="mVN-zw-n1X" secondAttribute="bottom" constant="5" id="q7d-3p-6Ql"/>
                                                     <constraint firstItem="5rU-no-wPA" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="qAW-TH-QtL"/>
                                                     <constraint firstItem="hD0-Mk-qrh" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="toW-YB-9U8"/>
                                                     <constraint firstItem="pDV-Xr-E1f" firstAttribute="top" secondItem="Oid-5I-oko" secondAttribute="bottom" constant="10" id="ucJ-1j-ZtF"/>
-                                                    <constraint firstItem="mVN-zw-n1X" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="uhB-yF-ifE"/>
+                                                    <constraint firstItem="mVN-zw-n1X" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="uhB-yF-ifE"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="top" secondItem="zNC-4F-BmM" secondAttribute="bottom" constant="5" id="vi7-do-IaJ"/>
                                                     <constraint firstItem="3bW-Zw-d9P" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="vze-KO-cVU"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ocm-tY-Gwn" secondAttribute="trailing" constant="10" id="wup-K2-ish"/>
