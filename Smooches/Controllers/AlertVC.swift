@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import DropDown
 
 class AlertVC: UIViewController {
     
@@ -60,6 +60,7 @@ class AlertVC: UIViewController {
         }
         return timepicker
     }()
+    let dropDown = DropDown()
     
     var dataSource = [Week]()
     
@@ -146,9 +147,28 @@ class AlertVC: UIViewController {
         endTimeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEndTime)))
         endTimeT.isEnabled = true
         setupTextFields(textField: reminderTypeT, placeholder: "")
-        reminderTypeT.isEnabled = false
+        reminderTypeT.isEnabled = true
+        reminderTypeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapReminderType)))
+        
+
+        // The view to which the drop down will appear on
+        dropDown.anchorView = reminderTypeT // UIView or UIBarButtonItem
+
+        // The list of items to display. Can be changed dynamically
+        dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
+        DropDown.startListeningToKeyboard()
+
+        // Will set a custom width instead of the anchor view width
         
         
+    }
+    
+    @objc func tapReminderType(){
+        dropDown.show()
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+            reminderTypeT.text = item
+        }
     }
     
     @objc func tapStartTime(){

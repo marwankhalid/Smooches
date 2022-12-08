@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		23909E87292F4F4200A13E62 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E86292F4F4200A13E62 /* MessagesVC.swift */; };
 		23909E89292F589600A13E62 /* AlertTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E88292F589600A13E62 /* AlertTVC.swift */; };
 		23909E8B292F5F3500A13E62 /* SelectContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E8A292F5F3500A13E62 /* SelectContactsVC.swift */; };
+		E1C19E26D834E55EAB350527 /* Pods_Smooches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521BAEDEE9BD53437FA8755C /* Pods_Smooches.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,9 @@
 		23909E86292F4F4200A13E62 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		23909E88292F589600A13E62 /* AlertTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTVC.swift; sourceTree = "<group>"; };
 		23909E8A292F5F3500A13E62 /* SelectContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactsVC.swift; sourceTree = "<group>"; };
+		40F48F5676ED8AFBA2DF89B3 /* Pods-Smooches.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smooches.debug.xcconfig"; path = "Target Support Files/Pods-Smooches/Pods-Smooches.debug.xcconfig"; sourceTree = "<group>"; };
+		521BAEDEE9BD53437FA8755C /* Pods_Smooches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smooches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62517A60C8DF36CAF8B7271E /* Pods-Smooches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smooches.release.xcconfig"; path = "Target Support Files/Pods-Smooches/Pods-Smooches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C19E26D834E55EAB350527 /* Pods_Smooches.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,8 @@
 			children = (
 				23909E64292B88CF00A13E62 /* Smooches */,
 				23909E63292B88CF00A13E62 /* Products */,
+				F7A7EDED00D170F89A466FDD /* Pods */,
+				5382E8E057EE370CD2F4140F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +178,24 @@
 			path = SupoortingFiles;
 			sourceTree = "<group>";
 		};
+		5382E8E057EE370CD2F4140F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				521BAEDEE9BD53437FA8755C /* Pods_Smooches.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7A7EDED00D170F89A466FDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40F48F5676ED8AFBA2DF89B3 /* Pods-Smooches.debug.xcconfig */,
+				62517A60C8DF36CAF8B7271E /* Pods-Smooches.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,9 +203,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23909E76292B88D000A13E62 /* Build configuration list for PBXNativeTarget "Smooches" */;
 			buildPhases = (
+				E5BD918F7930B96246A0D64F /* [CP] Check Pods Manifest.lock */,
 				23909E5E292B88CF00A13E62 /* Sources */,
 				23909E5F292B88CF00A13E62 /* Frameworks */,
 				23909E60292B88CF00A13E62 /* Resources */,
+				26DDCC2A5548428BD277DB52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +234,7 @@
 				};
 			};
 			buildConfigurationList = 23909E5D292B88CF00A13E62 /* Build configuration list for PBXProject "Smooches" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -236,6 +263,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26DDCC2A5548428BD277DB52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smooches/Pods-Smooches-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smooches/Pods-Smooches-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smooches/Pods-Smooches-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5BD918F7930B96246A0D64F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smooches-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23909E5E292B88CF00A13E62 /* Sources */ = {
@@ -402,6 +471,7 @@
 		};
 		23909E77292B88D000A13E62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F48F5676ED8AFBA2DF89B3 /* Pods-Smooches.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +505,7 @@
 		};
 		23909E78292B88D000A13E62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62517A60C8DF36CAF8B7271E /* Pods-Smooches.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
