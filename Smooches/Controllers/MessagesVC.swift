@@ -160,11 +160,10 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
                 cell.descriptionL.attributedText = underlineAttriString
                 tableView.rowHeight = UITableView.automaticDimension
                 self.expanded = true
-                tableView.endUpdates()
-            }else {
-                print("None")
             }
-        }else {
+            tableView.endUpdates()
+        }
+        if self.expanded {
             tableView.beginUpdates()
             let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"
             let termsRange = (more as NSString).range(of: "Readmore")
@@ -180,11 +179,10 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
                 underlineAttriString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range1)
                 cell.descriptionL.attributedText = underlineAttriString
                 tableView.rowHeight = UITableView.automaticDimension
-                tableView.endUpdates()
+                //tableView.endUpdates()
                 self.expanded = false
-            }else {
-                print("None")
             }
+            tableView.endUpdates()
         }
         
     }
