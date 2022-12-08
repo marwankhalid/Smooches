@@ -784,6 +784,7 @@
                         <outlet property="addContactsTableViewHeight" destination="cZx-l7-Zd8" id="HGR-vE-1Ty"/>
                         <outlet property="closeB" destination="x5U-0c-AFb" id="dVc-0d-ukb"/>
                         <outlet property="contentViewBase" destination="sll-oM-Q1F" id="5eu-J1-49Q"/>
+                        <outlet property="contetnViewBaseBottomConstraint" destination="Kbq-v2-mNT" id="PKb-aN-0I1"/>
                         <outlet property="endTimeT" destination="QO1-l2-n5h" id="Oqt-zz-ncW"/>
                         <outlet property="messageT" destination="hD0-Mk-qrh" id="zCO-rP-ssM"/>
                         <outlet property="reminderTypeT" destination="Oid-5I-oko" id="QF4-2K-KNs"/>

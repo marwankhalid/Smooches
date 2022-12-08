@@ -25,41 +25,9 @@ class AlertVC: UIViewController {
     @IBOutlet weak var messageT: UITextView!
     @IBOutlet weak var submitB: UIButton!
     @IBOutlet weak var closeB: UIButton!
-    var pickerView:UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .white
-        return v
-    }()
+   
+    @IBOutlet weak var contetnViewBaseBottomConstraint: NSLayoutConstraint!
     
-    var cancel:UIButton = {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("Cancel", for: .normal)
-        b.setTitleColor(UIColor.link, for: .normal)
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        return b
-    }()
-    
-    var ok:UIButton = {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("ok", for: .normal)
-        b.setTitleColor(UIColor.link, for: .normal)
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        return b
-    }()
-    
-    var timePicker:UIDatePicker = {
-        let timepicker = UIDatePicker()
-        timepicker.translatesAutoresizingMaskIntoConstraints = false
-        timepicker.backgroundColor = UIColor.gray
-        timepicker.datePickerMode = UIDatePicker.Mode.time
-        if #available(iOS 13.4, *) {
-            timepicker.preferredDatePickerStyle = .wheels
-        }
-        return timepicker
-    }()
     let dropDown = DropDown()
     
     var dataSource = [Week]()
@@ -72,38 +40,8 @@ class AlertVC: UIViewController {
         setHieghts()
         setupViews()
         setupTextView()
-        notification()
-        setupDatePicker()
+        //notification()
         
-    }
-    
-    private func setupDatePicker(){
-        self.contentViewBase.addSubview(self.pickerView)
-        self.pickerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.pickerView.heightAnchor.constraint(equalToConstant: 320).isActive = true
-        self.pickerView.centerXAnchor.constraint(equalTo: contentViewBase.centerXAnchor).isActive = true
-        self.pickerView.centerYAnchor.constraint(equalTo: contentViewBase.centerYAnchor).isActive = true
-        
-        self.pickerView.addSubview(timePicker)
-        timePicker.leadingAnchor.constraint(equalTo: pickerView.leadingAnchor, constant: 10).isActive = true
-        timePicker.trailingAnchor.constraint(equalTo: pickerView.trailingAnchor,constant: 10).isActive = true
-        timePicker.topAnchor.constraint(equalTo: pickerView.topAnchor,constant: 10).isActive = true
-        timePicker.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        
-        self.pickerView.addSubview(cancel)
-        self.pickerView.addSubview(ok)
-        
-        cancel.topAnchor.constraint(equalTo: timePicker.bottomAnchor,constant: 10).isActive = true
-        cancel.leadingAnchor.constraint(equalTo: pickerView.leadingAnchor,constant: 20).isActive = true
-        cancel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        cancel.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        ok.topAnchor.constraint(equalTo: timePicker.bottomAnchor,constant: 10).isActive = true
-        ok.trailingAnchor.constraint(equalTo: pickerView.trailingAnchor,constant: 50).isActive = true
-        ok.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        ok.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        pickerView.layer.cornerRadius = 20
-        self.pickerView.alpha = 0
     }
     
     private func notification(){
@@ -154,21 +92,18 @@ class AlertVC: UIViewController {
         dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
         DropDown.startListeningToKeyboard()
         dropDown.backgroundColor = .systemBackground
-        
         if #available(iOS 13.0, *) {
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 print("Dark mode")
                 dropDown.separatorColor = .lightText
-            }
-            else {
+                
+            } else {
                 print("Light mode")
                 dropDown.separatorColor = .black
             }
         }
         dropDown.selectionBackgroundColor = .secondarySystemBackground
         dropDown.textColor = .label
-        
-        
     }
     
     @objc func tapReminderType(){
@@ -313,6 +248,12 @@ extension AlertVC:UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        self.contetnViewBaseBottomConstraint.constant = 270
+        DispatchQueue.main.async {
+            print("ARIAN")
+            self.scrollViewS.scrollToBottom(animated: true)
+            
+        }
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
@@ -320,6 +261,7 @@ extension AlertVC:UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        self.contetnViewBaseBottomConstraint.constant = 20
         if textView.text.isEmpty {
             textView.text = """
                                     Type Message Here
@@ -344,11 +286,11 @@ extension AlertVC:UITextViewDelegate {
 }
 
 extension UIScrollView {
-   func scrollToBottom(animated: Bool) {
-     if self.contentSize.height < self.bounds.size.height { return }
-     let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
-     self.setContentOffset(bottomOffset, animated: animated)
-  }
+    func scrollToBottom(animated: Bool) {
+        if self.contentSize.height < self.bounds.size.height { return }
+        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
+        self.setContentOffset(bottomOffset, animated: animated)
+    }
 }
 
 
@@ -357,3 +299,4 @@ extension AlertVC:UITextFieldDelegate {
         return false
     }
 }
+
