@@ -41,6 +41,7 @@ class AlertVC: UIViewController {
         setupViews()
         setupTextView()
         //notification()
+        messageT.textColor = .label
         
     }
     
@@ -256,12 +257,12 @@ extension AlertVC:UITextViewDelegate {
         }
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = .label
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        self.contetnViewBaseBottomConstraint.constant = 20
+        self.contetnViewBaseBottomConstraint.constant = 15
         if textView.text.isEmpty {
             textView.text = """
                                     Type Message Here
