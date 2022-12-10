@@ -97,14 +97,14 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactsAgain.count + 40
+        return contactsAgain.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTVC.identifier, for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
-        cell.nameL.text = "contactsAgain[indexPath.row].name"
-        cell.phoneL.text = "contactsAgain[indexPath.row].phoneNumber.first?.description"
+        cell.nameL.text = contactsAgain[indexPath.row].name
+        cell.phoneL.text = contactsAgain[indexPath.row].phoneNumber.first?.description
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .systemBackground
         cell.nameL.textColor = .label
@@ -115,15 +115,23 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         cell.cardV.layer.shadowRadius = 1.0
         cell.cardV.layer.shadowOpacity = 0.7
         
-        for i in 0..<indexSaved.count {
-            if indexPath.row == indexSaved[i] {
-                cell.accessoryType = .checkmark
-                break
-            }else {
-                cell.accessoryType = .none
-                break
-            }
+        
+        if let _ = indexSaved.firstIndex(of: indexPath.row) {
+            cell.accessoryType = .none
+        }else {
+            cell.accessoryType = .checkmark
         }
+        
+        
+//        for i in 0..<indexSaved.count {
+//            if indexPath.row == indexSaved[i] {
+//                cell.accessoryType = .checkmark
+//                break
+//            }else {
+//                cell.accessoryType = .none
+//                break
+//            }
+//        }
         
         
         
@@ -139,18 +147,17 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
                 self.selectContactsCounter += 1
                 self.indexSaved.append(indexPath.row)
             }else if self.indexSaved.count > 0{
-                for i in 0..<indexSaved.count {
-                    if indexPath.row == indexSaved[i] {
-                        cell.accessoryType = .none
-                        self.selectContactsCounter -= 1
-                        self.indexSaved.remove(at: i)
-                        break
-                    }else {
-                        cell.accessoryType = .checkmark
-                        self.selectContactsCounter += 1
-                        self.indexSaved.append(indexPath.row)
-                        break
-                    }
+                if let index = indexSaved.firstIndex(of: indexPath.row) {
+                    print(index)
+                    print("Find")
+                    cell.accessoryType = .none
+                    self.selectContactsCounter -= 1
+                    self.indexSaved.remove(at: index)
+                }else {
+                    cell.accessoryType = .checkmark
+                    self.selectContactsCounter += 1
+                    self.indexSaved.append(indexPath.row)
+                    print("Not Find")
                 }
             }
             print(indexSaved)
