@@ -117,22 +117,10 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         
         
         if let _ = indexSaved.firstIndex(of: indexPath.row) {
-            cell.accessoryType = .none
-        }else {
             cell.accessoryType = .checkmark
+        }else {
+            cell.accessoryType = .none
         }
-        
-        
-//        for i in 0..<indexSaved.count {
-//            if indexPath.row == indexSaved[i] {
-//                cell.accessoryType = .checkmark
-//                break
-//            }else {
-//                cell.accessoryType = .none
-//                break
-//            }
-//        }
-        
         
         
         return cell
