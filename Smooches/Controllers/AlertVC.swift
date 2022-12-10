@@ -322,27 +322,17 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.cellForRow(at: indexPath) as! AlertTVC
         if savedIndexForSelectedWeeks.contains(indexPath.row) {
             cell.checkB.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-            //self.tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .automatic)
-            print(savedIndexForSelectedWeeks, "SavedIndex IF")
             while savedIndexForSelectedWeeks.contains(indexPath.row) {
                 if let itemToRemoveIndex = savedIndexForSelectedWeeks.firstIndex(of: indexPath.row) {
                     savedIndexForSelectedWeeks.remove(at: itemToRemoveIndex)
                 }
             }
-            print(savedIndexForSelectedWeeks, "Data IF")
-            //self.tableView.reloadData()
         }else if !savedIndexForSelectedWeeks.contains(indexPath.row) {
             print(2)
             cell.checkB.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-            //self.tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .automatic)
             savedIndexForSelectedWeeks.append(indexPath.row)
-            print(savedIndexForSelectedWeeks, "SavedIndex ELSE")
-            //self.tableView.reloadData()
         }
     }
-    
-    
-    
 }
 
 
