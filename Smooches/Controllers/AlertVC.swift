@@ -55,6 +55,8 @@ class AlertVC: UIViewController {
     let dropDown = DropDown()
     var dataSource = [Week]()
     
+    var savedIndexForSelectedWeeks:[Int] = [Int]()
+    
     var dropDownDataSource = ["Single Day", "Date Range","Monthly"]
     
     override func viewDidLoad() {
@@ -289,9 +291,10 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.tableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AlertTVC", for: indexPath) as! AlertTVC
+            let cell = tableView.dequeueReusableCell(withIdentifier: AlertTVC.identifier, for: indexPath) as! AlertTVC
             cell.selectionStyle = .none
             cell.checkB.setTitle("", for: .normal)
+            cell.nameL.text = dataSource[indexPath.row].name
             cell.nameL.textColor = .label
             cell.cardView.backgroundColor = .systemBackground
             cell.cardView.layer.cornerRadius = 10.0
@@ -301,7 +304,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
             cell.cardView.layer.shadowOpacity = 0.7
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as! HomeTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTVC.identifier, for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .systemBackground
@@ -314,6 +317,32 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         cell.cardV.layer.shadowOpacity = 0.7
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! AlertTVC
+        if savedIndexForSelectedWeeks.contains(indexPath.row) {
+            cell.checkB.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            //self.tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .automatic)
+            print(savedIndexForSelectedWeeks, "SavedIndex IF")
+            while savedIndexForSelectedWeeks.contains(indexPath.row) {
+                if let itemToRemoveIndex = savedIndexForSelectedWeeks.firstIndex(of: indexPath.row) {
+                    savedIndexForSelectedWeeks.remove(at: itemToRemoveIndex)
+                }
+            }
+            print(savedIndexForSelectedWeeks, "Data IF")
+            //self.tableView.reloadData()
+        }else if !savedIndexForSelectedWeeks.contains(indexPath.row) {
+            print(2)
+            cell.checkB.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            //self.tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .automatic)
+            savedIndexForSelectedWeeks.append(indexPath.row)
+            print(savedIndexForSelectedWeeks, "SavedIndex ELSE")
+            //self.tableView.reloadData()
+        }
+    }
+    
+    
+    
 }
 
 
