@@ -25,11 +25,13 @@ class AlertVC: UIViewController {
     @IBOutlet weak var messageT: UITextView!
     @IBOutlet weak var submitB: UIButton!
     @IBOutlet weak var closeB: UIButton!
-   
     @IBOutlet weak var contetnViewBaseBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var message2T: UITextView!
+    @IBOutlet weak var message3T: UITextView!
+    @IBOutlet weak var message4T: UITextView!
+    @IBOutlet weak var message5T: UITextView!
     
     let dropDown = DropDown()
-    
     var dataSource = [Week]()
     
     override func viewDidLoad() {
@@ -145,22 +147,27 @@ class AlertVC: UIViewController {
     }
     
     private func setupTextView(){
-        messageT.text = """
-                                Type Message Here
-                                """
-        messageT.layer.cornerRadius = 20
-        messageT.layer.borderWidth = 1
-        messageT.layer.borderColor = UIColor.link.cgColor
-        messageT.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-        messageT.textContainer.lineFragmentPadding = 20
-        messageT.textColor = UIColor.lightGray
-        messageT.font = UIFont.systemFont(ofSize: 16)
-        messageT.returnKeyType = .done
-        messageT.delegate = self
-        messageT.autocorrectionType = .no
-        messageT.autocapitalizationType = .none
-        messageT.layer.cornerRadius = 20
-        messageT.isEditable = true
+        setupTextField(textfield: messageT)
+        setupTextField(textfield: message2T)
+        setupTextField(textfield: message3T)
+        setupTextField(textfield: message4T)
+        setupTextField(textfield: message5T)
+    }
+    
+    private func setupTextField(textfield:UITextView){
+        textfield.layer.cornerRadius = 20
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.link.cgColor
+        textfield.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        textfield.textContainer.lineFragmentPadding = 20
+        textfield.textColor = UIColor.label
+        textfield.font = UIFont.systemFont(ofSize: 16)
+        textfield.returnKeyType = .done
+        textfield.delegate = self
+        textfield.autocorrectionType = .no
+        textfield.autocapitalizationType = .none
+        textfield.layer.cornerRadius = 20
+        textfield.isEditable = true
     }
     
     private func setHieghts(){

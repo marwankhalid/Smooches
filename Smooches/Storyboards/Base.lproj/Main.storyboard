@@ -838,6 +838,10 @@
                         <outlet property="contentViewBase" destination="sll-oM-Q1F" id="5eu-J1-49Q"/>
                         <outlet property="contetnViewBaseBottomConstraint" destination="Kbq-v2-mNT" id="PKb-aN-0I1"/>
                         <outlet property="endTimeT" destination="QO1-l2-n5h" id="Oqt-zz-ncW"/>
+                        <outlet property="message2T" destination="613-2N-IVe" id="Sso-Go-yV7"/>
+                        <outlet property="message3T" destination="DrG-6f-6ZN" id="3az-eP-edE"/>
+                        <outlet property="message4T" destination="Hpg-Kq-DCB" id="684-Kd-mtb"/>
+                        <outlet property="message5T" destination="Ngp-1B-wMD" id="0Sh-8a-8gW"/>
                         <outlet property="messageT" destination="hD0-Mk-qrh" id="zCO-rP-ssM"/>
                         <outlet property="reminderTypeT" destination="Oid-5I-oko" id="QF4-2K-KNs"/>
                         <outlet property="scrollViewContentView" destination="Sdr-JM-7KB" id="N4k-73-f0e"/>
