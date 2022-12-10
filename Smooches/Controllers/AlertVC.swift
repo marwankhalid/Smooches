@@ -255,7 +255,7 @@ extension AlertVC:UITextViewDelegate {
             self.scrollViewS.scrollToBottom(animated: true)
             
         }
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == .label {
             textView.text = nil
             textView.textColor = .label
         }
@@ -271,7 +271,6 @@ extension AlertVC:UITextViewDelegate {
         }
     }
     
-//
 //    func textViewDidChangeSelection(_ textView: UITextView) {
 //        if textView.hasText {
 //            finishB.isEnabled = true

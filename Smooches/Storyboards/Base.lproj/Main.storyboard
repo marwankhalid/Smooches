@@ -411,7 +411,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="729"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-JM-7KB" userLabel="ContentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="363" height="830"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="1470"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Week days to restrict the message to those days only (Optional)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ky-ee-ak1">
                                                         <rect key="frame" x="10" y="55" width="343" height="36"/>
@@ -665,7 +665,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-e6-ZrQ">
-                                                        <rect key="frame" x="20" y="771" width="323" height="45"/>
+                                                        <rect key="frame" x="20" y="1401" width="323" height="45"/>
                                                         <color key="backgroundColor" red="0.18039217590000001" green="0.40784314269999999" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="kjt-Hr-RSM"/>
@@ -694,12 +694,56 @@
                                                             <action selector="closeB:" destination="rg0-oQ-dQ1" eventType="touchUpInside" id="SAO-HK-e0n"/>
                                                         </connections>
                                                     </button>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="613-2N-IVe">
+                                                        <rect key="frame" x="10" y="761" width="343" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="Drz-WT-7mT"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-6f-6ZN">
+                                                        <rect key="frame" x="10" y="921" width="343" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="AMH-cH-sxw"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hpg-Kq-DCB">
+                                                        <rect key="frame" x="10" y="1081" width="343" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="zUv-ob-7g4"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ngp-1B-wMD">
+                                                        <rect key="frame" x="10" y="1241" width="343" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="StV-jZ-IGA"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="Hpg-Kq-DCB" firstAttribute="top" secondItem="DrG-6f-6ZN" secondAttribute="bottom" constant="10" id="057-Ec-pYh"/>
                                                     <constraint firstItem="5Ky-ee-ak1" firstAttribute="top" secondItem="5rU-no-wPA" secondAttribute="bottom" constant="10" id="0UM-cc-E2Y"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ngp-1B-wMD" secondAttribute="trailing" constant="10" id="0da-Vx-0qO"/>
                                                     <constraint firstAttribute="trailing" secondItem="hD0-Mk-qrh" secondAttribute="trailing" constant="10" id="0nz-GV-kH6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hpg-Kq-DCB" secondAttribute="trailing" constant="10" id="0t2-SO-SVR"/>
                                                     <constraint firstAttribute="trailing" secondItem="x5U-0c-AFb" secondAttribute="trailing" constant="5" id="27g-oX-421"/>
+                                                    <constraint firstItem="DrG-6f-6ZN" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="2Ue-TP-xt3"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="2go-Bi-f0d"/>
                                                     <constraint firstItem="5Ky-ee-ak1" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="3bg-eF-f9h"/>
                                                     <constraint firstItem="Ocm-tY-Gwn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="4U5-yv-3VW"/>
@@ -710,12 +754,16 @@
                                                     <constraint firstAttribute="trailing" secondItem="5rU-no-wPA" secondAttribute="trailing" constant="10" id="6La-Tm-anG"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="top" secondItem="zNC-4F-BmM" secondAttribute="bottom" constant="5" id="6bN-FF-XXT"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="top" secondItem="zNC-4F-BmM" secondAttribute="bottom" constant="5" id="8c4-jb-UrK"/>
-                                                    <constraint firstAttribute="height" constant="830" id="9TF-uz-3H1"/>
-                                                    <constraint firstItem="Cez-e6-ZrQ" firstAttribute="top" secondItem="hD0-Mk-qrh" secondAttribute="bottom" constant="20" id="B47-t9-Zlr"/>
+                                                    <constraint firstAttribute="height" constant="1470" id="9TF-uz-3H1"/>
+                                                    <constraint firstItem="Ngp-1B-wMD" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="9gW-E1-Vvc"/>
+                                                    <constraint firstItem="Ngp-1B-wMD" firstAttribute="top" secondItem="Hpg-Kq-DCB" secondAttribute="bottom" constant="10" id="9rx-aR-mS9"/>
                                                     <constraint firstItem="5rU-no-wPA" firstAttribute="top" secondItem="Sdr-JM-7KB" secondAttribute="top" constant="20" id="CJY-PO-NNn"/>
+                                                    <constraint firstItem="613-2N-IVe" firstAttribute="top" secondItem="hD0-Mk-qrh" secondAttribute="bottom" constant="10" id="EBB-v9-PsV"/>
                                                     <constraint firstItem="Cez-e6-ZrQ" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="EhM-4g-R8H"/>
+                                                    <constraint firstItem="613-2N-IVe" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="Ewh-fj-F0b"/>
                                                     <constraint firstItem="QO1-l2-n5h" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="F9m-Lc-7P8"/>
                                                     <constraint firstItem="f1K-K3-IBx" firstAttribute="top" secondItem="pDV-Xr-E1f" secondAttribute="bottom" constant="10" id="Hbl-ET-PaY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="613-2N-IVe" secondAttribute="trailing" constant="10" id="IbK-3o-8pQ"/>
                                                     <constraint firstItem="e73-G1-aNo" firstAttribute="top" secondItem="f1K-K3-IBx" secondAttribute="bottom" constant="10" id="JEb-IV-LVh"/>
                                                     <constraint firstItem="zNC-4F-BmM" firstAttribute="top" secondItem="QO1-l2-n5h" secondAttribute="bottom" constant="10" id="LMg-Hg-MCe"/>
                                                     <constraint firstAttribute="trailing" secondItem="3bW-Zw-d9P" secondAttribute="trailing" constant="10" id="MBl-l4-Uhb"/>
@@ -734,15 +782,19 @@
                                                     <constraint firstAttribute="trailing" secondItem="PTv-LK-Cu1" secondAttribute="trailing" constant="10" id="gsu-7w-JTQ"/>
                                                     <constraint firstItem="Ocm-tY-Gwn" firstAttribute="top" secondItem="3bW-Zw-d9P" secondAttribute="bottom" constant="10" id="guP-s9-scq"/>
                                                     <constraint firstItem="VmW-DB-jxn" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" id="hH2-iC-L1J"/>
+                                                    <constraint firstItem="Hpg-Kq-DCB" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="hKx-9L-ocW"/>
                                                     <constraint firstItem="QO1-l2-n5h" firstAttribute="top" secondItem="Ocm-tY-Gwn" secondAttribute="bottom" constant="5" id="k8D-Oa-pQH"/>
                                                     <constraint firstItem="e73-G1-aNo" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" id="k8X-Rr-00a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DrG-6f-6ZN" secondAttribute="trailing" constant="10" id="lzq-af-2tt"/>
                                                     <constraint firstItem="zNC-4F-BmM" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="nDC-s2-g8a"/>
                                                     <constraint firstAttribute="trailing" secondItem="mVN-zw-n1X" secondAttribute="trailing" constant="10" id="pfW-8M-EUQ"/>
                                                     <constraint firstItem="3bW-Zw-d9P" firstAttribute="top" secondItem="mVN-zw-n1X" secondAttribute="bottom" constant="5" id="q7d-3p-6Ql"/>
                                                     <constraint firstItem="5rU-no-wPA" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="qAW-TH-QtL"/>
                                                     <constraint firstItem="hD0-Mk-qrh" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="toW-YB-9U8"/>
+                                                    <constraint firstItem="Cez-e6-ZrQ" firstAttribute="top" secondItem="Ngp-1B-wMD" secondAttribute="bottom" constant="10" id="uaP-Z5-zci"/>
                                                     <constraint firstItem="pDV-Xr-E1f" firstAttribute="top" secondItem="Oid-5I-oko" secondAttribute="bottom" constant="10" id="ucJ-1j-ZtF"/>
                                                     <constraint firstItem="mVN-zw-n1X" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="uhB-yF-ifE"/>
+                                                    <constraint firstItem="DrG-6f-6ZN" firstAttribute="top" secondItem="613-2N-IVe" secondAttribute="bottom" constant="10" id="vgF-on-QDZ"/>
                                                     <constraint firstItem="Oid-5I-oko" firstAttribute="top" secondItem="zNC-4F-BmM" secondAttribute="bottom" constant="5" id="vi7-do-IaJ"/>
                                                     <constraint firstItem="3bW-Zw-d9P" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="vze-KO-cVU"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ocm-tY-Gwn" secondAttribute="trailing" constant="10" id="wup-K2-ish"/>
