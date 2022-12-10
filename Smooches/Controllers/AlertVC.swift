@@ -178,7 +178,6 @@ class AlertVC: UIViewController {
         }else if reminderTypeT.text == "Date Range" {
             chooseRange()
         }
-        
     }
     
     private func chooseDate(){
