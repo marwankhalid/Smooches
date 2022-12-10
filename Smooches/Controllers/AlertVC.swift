@@ -41,9 +41,7 @@ class AlertVC: UIViewController {
         setupTableView()
         setHieghts()
         setupViews()
-        setupTextView()
-        //notification()
-        messageT.textColor = .label
+        setupText()
         
     }
     
@@ -146,21 +144,22 @@ class AlertVC: UIViewController {
         textField.setRightPaddingPoints(20)
     }
     
-    private func setupTextView(){
-        setupTextField(textfield: messageT)
-        setupTextField(textfield: message2T)
-        setupTextField(textfield: message3T)
-        setupTextField(textfield: message4T)
-        setupTextField(textfield: message5T)
+    private func setupText(){
+        setupTextView(textfield: messageT)
+        setupTextView(textfield: message2T)
+        setupTextView(textfield: message3T)
+        setupTextView(textfield: message4T)
+        setupTextView(textfield: message5T)
     }
     
-    private func setupTextField(textfield:UITextView){
+    private func setupTextView(textfield:UITextView){
+        textfield.text = "Type Here..."
+        textfield.textColor = .link
         textfield.layer.cornerRadius = 20
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.link.cgColor
         textfield.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         textfield.textContainer.lineFragmentPadding = 20
-        textfield.textColor = UIColor.label
         textfield.font = UIFont.systemFont(ofSize: 16)
         textfield.returnKeyType = .done
         textfield.delegate = self
@@ -182,7 +181,7 @@ class AlertVC: UIViewController {
     }
     
     @IBAction func addB(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "SelectContactsVC") as! SelectContactsVC
+        let controller = storyboard?.instantiateViewController(withIdentifier: SelectContactsVC.identifier) as! SelectContactsVC
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true)
     }
@@ -262,7 +261,7 @@ extension AlertVC:UITextViewDelegate {
             self.scrollViewS.scrollToBottom(animated: true)
             
         }
-        if textView.textColor == .label {
+        if textView.textColor == .link {
             textView.text = nil
             textView.textColor = .label
         }
@@ -272,9 +271,9 @@ extension AlertVC:UITextViewDelegate {
         self.contetnViewBaseBottomConstraint.constant = 15
         if textView.text.isEmpty {
             textView.text = """
-                                    Type Message Here
+                                    Type Here...
                                     """
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor.link
         }
     }
     
