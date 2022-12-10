@@ -97,14 +97,14 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactsAgain.count
+        return contactsAgain.count + 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTVC.identifier, for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
-        cell.nameL.text = contactsAgain[indexPath.row].name
-        cell.phoneL.text = contactsAgain[indexPath.row].phoneNumber.first?.description
+        cell.nameL.text = "contactsAgain[indexPath.row].name"
+        cell.phoneL.text = "contactsAgain[indexPath.row].phoneNumber.first?.description"
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .systemBackground
         cell.nameL.textColor = .label
@@ -114,6 +114,19 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         cell.cardV.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         cell.cardV.layer.shadowRadius = 1.0
         cell.cardV.layer.shadowOpacity = 0.7
+        
+        for i in 0..<indexSaved.count {
+            if indexPath.row == indexSaved[i] {
+                cell.accessoryType = .checkmark
+                break
+            }else {
+                cell.accessoryType = .none
+                break
+            }
+        }
+        
+        
+        
         return cell
     }
     
@@ -121,25 +134,19 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         if self.selectContactsCounter <= 5 {
             let cell = tableView.cellForRow(at: indexPath) as! HomeTVC
             if indexSaved.count == 0 {
-                print("A")
                 let cell = tableView.cellForRow(at: indexPath) as! HomeTVC
-                cell.imgI.alpha = 0.6
+                cell.accessoryType = .checkmark
                 self.selectContactsCounter += 1
                 self.indexSaved.append(indexPath.row)
             }else if self.indexSaved.count > 0{
-                print("B")
                 for i in 0..<indexSaved.count {
                     if indexPath.row == indexSaved[i] {
-                        print("C")
-                        print(indexPath.row)
-                        print(i)
-                        print(indexSaved[i])
-                        cell.imgI.alpha = 1
+                        cell.accessoryType = .none
                         self.selectContactsCounter -= 1
                         self.indexSaved.remove(at: i)
                         break
                     }else {
-                        cell.imgI.alpha = 0.6
+                        cell.accessoryType = .checkmark
                         self.selectContactsCounter += 1
                         self.indexSaved.append(indexPath.row)
                         break
