@@ -48,12 +48,10 @@ class SelectContactsVC: UIViewController {
 
     @IBAction func doneB(_ sender: Any) {
         if self.selectedContacts() {
-            self.tableView.endUpdates()
             delegate?.tapContacts(array: selectedContactsArray)
             self.dismiss(animated: true)
         }else if !selectedContacts() {
             print("NIL")
-            self.tableView.endUpdates()
             self.dismiss(animated: true)
         }
         
@@ -77,7 +75,6 @@ class SelectContactsVC: UIViewController {
     
     @IBAction func dismissB(_ sender: Any) {
         setupTableView()
-        self.tableView.endUpdates()
         self.selectContactsCounter = 1
         self.indexSaved.removeAll()
         self.selectedContactsArray.removeAll()
@@ -121,7 +118,6 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.beginUpdates()
         if self.selectContactsCounter <= 5 {
             let cell = tableView.cellForRow(at: indexPath) as! HomeTVC
             if indexSaved.count == 0 {
@@ -152,7 +148,6 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
             }
             print(indexSaved)
         }else {
-            self.tableView.endUpdates()
             print("Selection Full")
         }
     }
