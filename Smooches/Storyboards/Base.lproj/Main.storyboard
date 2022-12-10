@@ -411,7 +411,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="729"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-JM-7KB" userLabel="ContentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="363" height="1550"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="1470"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Week days to restrict the message to those days only (Optional)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ky-ee-ak1">
                                                         <rect key="frame" x="10" y="55" width="343" height="36"/>
@@ -548,7 +548,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Contacts (max 5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-Xr-E1f">
-                                                        <rect key="frame" x="20" y="551" width="333" height="20"/>
+                                                        <rect key="frame" x="20" y="491" width="333" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="6zR-mw-iTQ"/>
                                                         </constraints>
@@ -557,7 +557,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-K3-IBx">
-                                                        <rect key="frame" x="223" y="581" width="120" height="40"/>
+                                                        <rect key="frame" x="223" y="521" width="120" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="1aJ-Hq-Gdf"/>
@@ -574,7 +574,7 @@
                                                         </connections>
                                                     </button>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="e73-G1-aNo">
-                                                        <rect key="frame" x="0.0" y="631" width="363" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="571" width="363" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="cZx-l7-Zd8"/>
@@ -646,7 +646,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTv-LK-Cu1">
-                                                        <rect key="frame" x="20" y="641" width="333" height="20"/>
+                                                        <rect key="frame" x="20" y="581" width="333" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Z0K-bo-L2k"/>
                                                         </constraints>
@@ -655,7 +655,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hD0-Mk-qrh">
-                                                        <rect key="frame" x="10" y="671" width="343" height="150"/>
+                                                        <rect key="frame" x="10" y="611" width="343" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="NtM-mO-02g"/>
@@ -665,7 +665,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-e6-ZrQ">
-                                                        <rect key="frame" x="20" y="1471" width="323" height="45"/>
+                                                        <rect key="frame" x="20" y="1411" width="323" height="45"/>
                                                         <color key="backgroundColor" red="0.18039217590000001" green="0.40784314269999999" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="kjt-Hr-RSM"/>
@@ -695,7 +695,7 @@
                                                         </connections>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="613-2N-IVe">
-                                                        <rect key="frame" x="10" y="831" width="343" height="150"/>
+                                                        <rect key="frame" x="10" y="771" width="343" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="Drz-WT-7mT"/>
@@ -705,7 +705,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-6f-6ZN">
-                                                        <rect key="frame" x="10" y="991" width="343" height="150"/>
+                                                        <rect key="frame" x="10" y="931" width="343" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="AMH-cH-sxw"/>
@@ -715,7 +715,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hpg-Kq-DCB">
-                                                        <rect key="frame" x="10" y="1151" width="343" height="150"/>
+                                                        <rect key="frame" x="10" y="1091" width="343" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="zUv-ob-7g4"/>
@@ -725,7 +725,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ngp-1B-wMD">
-                                                        <rect key="frame" x="10" y="1311" width="343" height="150"/>
+                                                        <rect key="frame" x="10" y="1251" width="343" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="StV-jZ-IGA"/>
@@ -735,18 +735,18 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYP-cg-qzl">
-                                                        <rect key="frame" x="20" y="481" width="323" height="20"/>
+                                                        <rect key="frame" x="20" y="481" width="323" height="0.0"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="ICC-Uo-x7x"/>
+                                                            <constraint firstAttribute="height" id="ICC-Uo-x7x"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.57647061349999995" green="0.71372550729999995" blue="0.92156863209999995" alpha="0.90930256620000005" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Single Day" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xU5-oE-Mif">
-                                                        <rect key="frame" x="10" y="506" width="343" height="40"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xU5-oE-Mif">
+                                                        <rect key="frame" x="10" y="486" width="343" height="0.0"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="FOS-Vg-v5W"/>
+                                                            <constraint firstAttribute="height" id="FOS-Vg-v5W"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -770,7 +770,7 @@
                                                     <constraint firstItem="pDV-Xr-E1f" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="20" id="63k-iV-g0O"/>
                                                     <constraint firstAttribute="trailing" secondItem="e73-G1-aNo" secondAttribute="trailing" id="68J-1i-4fT"/>
                                                     <constraint firstAttribute="trailing" secondItem="5rU-no-wPA" secondAttribute="trailing" constant="10" id="6La-Tm-anG"/>
-                                                    <constraint firstAttribute="height" constant="1550" id="9TF-uz-3H1"/>
+                                                    <constraint firstAttribute="height" constant="1470" id="9TF-uz-3H1"/>
                                                     <constraint firstItem="Ngp-1B-wMD" firstAttribute="leading" secondItem="Sdr-JM-7KB" secondAttribute="leading" constant="10" id="9gW-E1-Vvc"/>
                                                     <constraint firstItem="Ngp-1B-wMD" firstAttribute="top" secondItem="Hpg-Kq-DCB" secondAttribute="bottom" constant="10" id="9rx-aR-mS9"/>
                                                     <constraint firstItem="5rU-no-wPA" firstAttribute="top" secondItem="Sdr-JM-7KB" secondAttribute="top" constant="20" id="CJY-PO-NNn"/>

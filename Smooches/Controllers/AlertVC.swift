@@ -37,9 +37,10 @@ class AlertVC: UIViewController {
     @IBOutlet weak var selectDateHeightConst: NSLayoutConstraint!
     
     
-    
     let dropDown = DropDown()
     var dataSource = [Week]()
+    
+    var dropDownDataSource = ["Single Day", "Date Range","Monthly"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,13 @@ class AlertVC: UIViewController {
         setupViews()
         setupText()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        timeLimitL.alpha = 0
+        selectDateT.alpha = 0
     }
     
     private func notification(){
@@ -96,8 +104,13 @@ class AlertVC: UIViewController {
         reminderTypeT.isEnabled = true
         reminderTypeT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapReminderType)))
         
+        
+        //setupTextFields(textField: selectDateT, placeholder: "Date")
+        selectDateT.isEnabled = true
+        selectDateT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEndTime)))
+        
         dropDown.anchorView = reminderTypeT
-        dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
+        dropDown.dataSource = dropDownDataSource
         DropDown.startListeningToKeyboard()
         dropDown.backgroundColor = .systemBackground
         if #available(iOS 13.0, *) {
@@ -117,8 +130,16 @@ class AlertVC: UIViewController {
     @objc func tapReminderType(){
         dropDown.show()
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
+            print("Selected item: \(item) at index: \(index)")
             reminderTypeT.text = item
+            if reminderTypeT.text == self.dropDownDataSource[1] || reminderTypeT.text == self.dropDownDataSource[2] {
+                scrollViewContentViewHeight.constant += 70
+                timeLimitHeightConst.constant = 20
+                selectDateHeightConst.constant = 40
+                timeLimitL.alpha = 1
+                selectDateT.alpha = 1
+                self.setupTextFields(textField: selectDateT, placeholder: "Date")
+            }
         }
     }
     
