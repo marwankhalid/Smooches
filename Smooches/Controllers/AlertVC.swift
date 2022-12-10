@@ -31,6 +31,13 @@ class AlertVC: UIViewController {
     @IBOutlet weak var message4T: UITextView!
     @IBOutlet weak var message5T: UITextView!
     
+    @IBOutlet weak var timeLimitL: UILabel!
+    @IBOutlet weak var timeLimitHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var selectDateT: UITextField!
+    @IBOutlet weak var selectDateHeightConst: NSLayoutConstraint!
+    
+    
+    
     let dropDown = DropDown()
     var dataSource = [Week]()
     
