@@ -342,12 +342,7 @@ extension AlertVC:UITextViewDelegate {
             textView.resignFirstResponder()
             return false
         }
-        //return textView.text.count + (text.count - range.length) <= maxLenghth
         return true
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        //wordCounterL.text = "\(textView.text.count)/300"
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -372,19 +367,6 @@ extension AlertVC:UITextViewDelegate {
             textView.textColor = UIColor.link
         }
     }
-    
-//    func textViewDidChangeSelection(_ textView: UITextView) {
-//        if textView.hasText {
-//            finishB.isEnabled = true
-//            finishB.titleLabel?.textColor = UIColor.link
-//        }
-//
-//        if !textView.hasText {
-//            finishB.isEnabled = false
-//            finishB.titleLabel?.textColor = UIColor.lightGray
-//        }
-//    }
-    
 }
 
 extension UIScrollView {
