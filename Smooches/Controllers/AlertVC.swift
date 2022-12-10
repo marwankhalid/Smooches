@@ -308,6 +308,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: AlertTVC.identifier, for: indexPath) as! AlertTVC
             cell.selectionStyle = .none
             cell.checkB.setTitle("", for: .normal)
+            cell.checkB.tintColor = .label
             cell.nameL.text = dataSource[indexPath.row].name
             cell.nameL.textColor = .label
             cell.cardView.backgroundColor = .systemBackground
