@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import Fastis
 
 class AlertVC: UIViewController {
     
@@ -36,6 +37,20 @@ class AlertVC: UIViewController {
     @IBOutlet weak var selectDateT: UITextField!
     @IBOutlet weak var selectDateHeightConst: NSLayoutConstraint!
     
+    
+    var currentValue: FastisValue? {
+        didSet {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            if let rangeValue = self.currentValue as? FastisRange {
+                self.selectDateT.text = formatter.string(from: rangeValue.fromDate) + " - " + formatter.string(from: rangeValue.toDate)
+            } else if let date = self.currentValue as? Date {
+                self.selectDateT.text = formatter.string(from: date)
+            } else {
+                self.selectDateT.placeholder = "Choose a date"
+            }
+        }
+    }
     
     let dropDown = DropDown()
     var dataSource = [Week]()
@@ -107,7 +122,7 @@ class AlertVC: UIViewController {
         
         //setupTextFields(textField: selectDateT, placeholder: "Date")
         selectDateT.isEnabled = true
-        selectDateT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapEndTime)))
+        selectDateT.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSelectDate)))
         
         dropDown.anchorView = reminderTypeT
         dropDown.dataSource = dropDownDataSource
@@ -155,6 +170,41 @@ class AlertVC: UIViewController {
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(controller, animated: true)
+    }
+    
+    @objc func tapSelectDate(){
+        if reminderTypeT.text == "Monthly" {
+            chooseDate()
+        }else if reminderTypeT.text == "Date Range" {
+            chooseRange()
+        }
+        
+    }
+    
+    private func chooseDate(){
+        let fastisController = FastisController(mode: .single)
+        fastisController.title = "Choose date"
+        fastisController.initialValue = self.currentValue as? Date
+        fastisController.maximumDate = Date()
+        fastisController.shortcuts = [.today, .yesterday, .tomorrow]
+        fastisController.doneHandler = { newDate in
+            self.currentValue = newDate
+        }
+        fastisController.present(above: self)
+    }
+    
+    private func chooseRange(){
+        let fastisController = FastisController(mode: .range)
+        fastisController.title = "Choose range"
+        fastisController.initialValue = self.currentValue as? FastisRange
+        fastisController.minimumDate = Calendar.current.date(byAdding: .month, value: -2, to: Date())
+        fastisController.maximumDate = Calendar.current.date(byAdding: .month, value: 3, to: Date())
+        fastisController.allowToChooseNilDate = true
+        fastisController.shortcuts = [.today, .lastWeek, .lastMonth]
+        fastisController.doneHandler = { newValue in
+            self.currentValue = newValue
+        }
+        fastisController.present(above: self)
     }
     
     private func setupTextFields(textField:UITextField,placeholder:String){

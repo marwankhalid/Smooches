@@ -17,6 +17,7 @@
 		2354141829411038004BD37B /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354141729411038004BD37B /* ContactUsVC.swift */; };
 		2354141A29411AC6004BD37B /* DeleteAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354141929411AC6004BD37B /* DeleteAlertVC.swift */; };
 		237E1128294263490062672F /* DatePickerAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E1127294263490062672F /* DatePickerAlertVC.swift */; };
+		237E112C2944679B0062672F /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E112B2944679B0062672F /* DateVC.swift */; };
 		23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E65292B88CF00A13E62 /* AppDelegate.swift */; };
 		23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E67292B88CF00A13E62 /* SceneDelegate.swift */; };
 		23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E69292B88CF00A13E62 /* AddContactsVC.swift */; };
@@ -43,6 +44,7 @@
 		2354141729411038004BD37B /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		2354141929411AC6004BD37B /* DeleteAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAlertVC.swift; sourceTree = "<group>"; };
 		237E1127294263490062672F /* DatePickerAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlertVC.swift; sourceTree = "<group>"; };
+		237E112B2944679B0062672F /* DateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
 		23909E62292B88CF00A13E62 /* Smooches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smooches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23909E65292B88CF00A13E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23909E67292B88CF00A13E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				2354141729411038004BD37B /* ContactUsVC.swift */,
 				2354141929411AC6004BD37B /* DeleteAlertVC.swift */,
 				237E1127294263490062672F /* DatePickerAlertVC.swift */,
+				237E112B2944679B0062672F /* DateVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,7 +195,6 @@
 				40F48F5676ED8AFBA2DF89B3 /* Pods-Smooches.debug.xcconfig */,
 				62517A60C8DF36CAF8B7271E /* Pods-Smooches.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -313,6 +315,7 @@
 			files = (
 				23909E8B292F5F3500A13E62 /* SelectContactsVC.swift in Sources */,
 				233754022934BB50003E5CA7 /* UserDefaultsConstants.swift in Sources */,
+				237E112C2944679B0062672F /* DateVC.swift in Sources */,
 				233754002934BB31003E5CA7 /* Defaults.swift in Sources */,
 				23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */,
 				23909E81292E542600A13E62 /* HomeVC.swift in Sources */,
