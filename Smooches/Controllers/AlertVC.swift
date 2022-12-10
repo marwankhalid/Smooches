@@ -56,8 +56,9 @@ class AlertVC: UIViewController {
     var dataSource = [Week]()
     
     var savedIndexForSelectedWeeks:[Int] = [Int]()
-    
+    var selectedContacts = [phoneContactAgain]()
     var dropDownDataSource = ["Single Day", "Date Range","Monthly"]
+    var constantHeight = 1470
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -249,19 +250,24 @@ class AlertVC: UIViewController {
     }
     
     private func setHieghts(){
+        // WeekDays TableView Height
         let newHeight = CGFloat((dataSource.count * 80) + 20)
         tableViewHeight.constant = newHeight
-        scrollViewContentViewHeight.constant = (scrollViewContentViewHeight.constant - 150) + newHeight
+        //scrollViewContentViewHeight.constant = (scrollViewContentViewHeight.constant - 150) + newHeight
+        scrollViewContentViewHeight.constant = CGFloat(constantHeight - 150) + newHeight
         
-        let addContactsTableViewHeightNewHiehgt = CGFloat((3 * 70))
-        
-        addContactsTableViewHeight.constant = addContactsTableViewHeightNewHiehgt
-        scrollViewContentViewHeight.constant = (scrollViewContentViewHeight.constant + addContactsTableViewHeightNewHiehgt)
+        // Selected Contacts TableView Height
+        if selectedContacts.count > 0 {
+            let addContactsTableViewHeightNewHiehgt = CGFloat((self.selectedContacts.count * 70))
+            addContactsTableViewHeight.constant = addContactsTableViewHeightNewHiehgt
+            scrollViewContentViewHeight.constant = ((scrollViewContentViewHeight.constant) + addContactsTableViewHeightNewHiehgt)
+        }
     }
     
     @IBAction func addB(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: SelectContactsVC.identifier) as! SelectContactsVC
         controller.modalPresentationStyle = .fullScreen
+        controller.delegate = self
         self.present(controller, animated: true)
     }
     
@@ -269,6 +275,14 @@ class AlertVC: UIViewController {
         
     }
     
+}
+
+extension AlertVC:selectedContactsTap {
+    func tapContacts(array: [phoneContactAgain]) {
+        self.selectedContacts = array
+        addContactsTableView.reloadData()
+        self.setHieghts()
+    }
 }
 
 extension AlertVC:UITableViewDelegate,UITableViewDataSource {
@@ -286,7 +300,7 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         if tableView == self.tableView {
             return dataSource.count
         }
-        return 3
+        return selectedContacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -306,6 +320,8 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTVC.identifier, for: indexPath) as! HomeTVC
         cell.selectionStyle = .none
+        cell.nameL.text = selectedContacts[indexPath.row].name
+        cell.phoneL.text = selectedContacts[indexPath.row].phoneNumber.first
         cell.imgI.layer.cornerRadius = cell.imgI.bounds.height / 2
         cell.cardV.backgroundColor = .systemBackground
         cell.nameL.textColor = .label
@@ -384,3 +400,6 @@ extension AlertVC:UITextFieldDelegate {
     }
 }
 
+protocol selectedContactsTap {
+    func tapContacts(array:[phoneContactAgain])
+}
