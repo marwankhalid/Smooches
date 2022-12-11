@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import Fastis
+import Toast_Swift
 
 
 struct AlertModel {
@@ -78,6 +79,7 @@ class AlertVC: UIViewController {
     var constantHeight = 1470
     var startTime:Date?
     var endTime:Date?
+    var selectedWeekDays = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -278,14 +280,12 @@ class AlertVC: UIViewController {
     }
     
     @IBAction func submitB(_ sender: Any) {
-        
         if checkStartTime() && checkEndTime() {
-            print("Successufll")
+            print(savedIndexForSelectedWeeks)
+            self.view.makeToast("Success")
         }else {
-            print("Failure")
+            self.view.makeToast("Failure")
         }
-        
-        
     }
     
     private func checkStartTime() ->Bool{
@@ -298,12 +298,16 @@ class AlertVC: UIViewController {
     }
     
     private func checkEndTime() ->Bool{
-        let currentDate = Date()
         if self.startTime! < self.endTime! {
             return true
         }else {
             return false
         }
+    }
+                                  
+    private func getWeekDaysString() ->String{
+        let converted = savedIndexForSelectedWeeks.map{String($0)}.joined(separator: ",")
+        return converted
     }
     
     
