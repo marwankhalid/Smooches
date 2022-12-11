@@ -76,6 +76,8 @@ class AlertVC: UIViewController {
     var selectedContacts = [phoneContactAgain]()
     var dropDownDataSource = ["Single Day", "Date Range","Monthly"]
     var constantHeight = 1470
+    var startTime:Date?
+    var endTime:Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -277,23 +279,51 @@ class AlertVC: UIViewController {
     
     @IBAction func submitB(_ sender: Any) {
         
+        if checkStartTime() && checkEndTime() {
+            print("Successufll")
+        }else {
+            print("Failure")
+        }
+        
+        
     }
+    
+    private func checkStartTime() ->Bool{
+        let currentDate = Date()
+        if currentDate < self.startTime! {
+            return true
+        }else {
+            return false
+        }
+    }
+    
+    private func checkEndTime() ->Bool{
+        let currentDate = Date()
+        if self.startTime! < self.endTime! {
+            return true
+        }else {
+            return false
+        }
+    }
+    
     
 }
 
 extension AlertVC:tapTime {
-    func tapTime(time: String,startTime: Bool, endTime:Bool) {
+    func tapTime(time: String,startTime: Bool, endTime:Bool,timeDate:Date) {
         if startTime {
             self.startTimeT.text = time
+            self.startTime = timeDate
         }
         if endTime {
             self.endTimeT.text = time
+            self.endTime = timeDate
         }
     }
 }
 
 protocol tapTime {
-    func tapTime(time:String,startTime:Bool,endTime:Bool)
+    func tapTime(time:String,startTime:Bool,endTime:Bool,timeDate:Date)
 }
 
 extension AlertVC:selectedContactsTap {

@@ -98,7 +98,6 @@ class DatePickerAlertVC: UIViewController {
         ok.addTarget(self, action: #selector(tapOk), for: .touchUpInside)
         
         pickerView.layer.cornerRadius = 20
-        //self.pickerView.alpha = 0
     }
     
     @objc func tapCancel(){
@@ -106,7 +105,7 @@ class DatePickerAlertVC: UIViewController {
     }
     
     @objc func tapOk(){
-        delegate?.tapTime(time: getDate(date: timePicker.date), startTime: startTime! ? true :false, endTime: endTime! ? true :false)
+        delegate?.tapTime(time: getDate(date: timePicker.date), startTime: startTime! ? true :false, endTime: endTime! ? true :false, timeDate:timePicker.date)
         self.dismiss(animated: true)
     }
 
@@ -115,7 +114,6 @@ class DatePickerAlertVC: UIViewController {
         dateFormatter.timeStyle = DateFormatter.Style.short
         dateFormatter.timeZone = TimeZone.current
         let time = dateFormatter.string(from: date)
-        print(time)
         return time
     }
 }
