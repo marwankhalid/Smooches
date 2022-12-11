@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AlertsSaved" representedClassName="AlertsSaved" syncable="YES" codeGenerationType="class">
+        <attribute name="endTime" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="message1" attributeType="String"/>
+        <attribute name="message2" attributeType="String"/>
+        <attribute name="message3" attributeType="String"/>
+        <attribute name="message4" attributeType="String"/>
+        <attribute name="message5" attributeType="String"/>
+        <attribute name="reminderType" attributeType="String"/>
+        <attribute name="selectedContacts" attributeType="String"/>
+        <attribute name="startTime" attributeType="String"/>
+        <attribute name="timeLimit" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="weekDays" optional="YES" attributeType="String"/>
+    </entity>
+</model>

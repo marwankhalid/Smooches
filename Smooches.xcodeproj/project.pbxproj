@@ -18,6 +18,7 @@
 		2354141A29411AC6004BD37B /* DeleteAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354141929411AC6004BD37B /* DeleteAlertVC.swift */; };
 		237E1128294263490062672F /* DatePickerAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E1127294263490062672F /* DatePickerAlertVC.swift */; };
 		237E112C2944679B0062672F /* DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237E112B2944679B0062672F /* DateVC.swift */; };
+		237E11302945C3B50062672F /* CoreDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 237E112E2945C3B50062672F /* CoreDataBase.xcdatamodeld */; };
 		23909E66292B88CF00A13E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E65292B88CF00A13E62 /* AppDelegate.swift */; };
 		23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E67292B88CF00A13E62 /* SceneDelegate.swift */; };
 		23909E6A292B88CF00A13E62 /* AddContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23909E69292B88CF00A13E62 /* AddContactsVC.swift */; };
@@ -45,6 +46,7 @@
 		2354141929411AC6004BD37B /* DeleteAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAlertVC.swift; sourceTree = "<group>"; };
 		237E1127294263490062672F /* DatePickerAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerAlertVC.swift; sourceTree = "<group>"; };
 		237E112B2944679B0062672F /* DateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateVC.swift; sourceTree = "<group>"; };
+		237E112F2945C3B50062672F /* CoreDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBase.xcdatamodel; sourceTree = "<group>"; };
 		23909E62292B88CF00A13E62 /* Smooches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smooches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23909E65292B88CF00A13E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23909E67292B88CF00A13E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				23909E7A292B8B0900A13E62 /* Models */,
 				23909E7F292B8B4500A13E62 /* SupoortingFiles */,
 				23909E73292B88D000A13E62 /* Info.plist */,
+				237E112E2945C3B50062672F /* CoreDataBase.xcdatamodeld */,
 			);
 			path = Smooches;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				23909E85292F4F2900A13E62 /* AlertVC.swift in Sources */,
 				2354141829411038004BD37B /* ContactUsVC.swift in Sources */,
 				233753FC2934BAD3003E5CA7 /* Week.swift in Sources */,
+				237E11302945C3B50062672F /* CoreDataBase.xcdatamodeld in Sources */,
 				23909E68292B88CF00A13E62 /* SceneDelegate.swift in Sources */,
 				23909E83292E543500A13E62 /* HomeTVC.swift in Sources */,
 				233753FA2934B083003E5CA7 /* PhoneContact.swift in Sources */,
@@ -562,6 +566,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		237E112E2945C3B50062672F /* CoreDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				237E112F2945C3B50062672F /* CoreDataBase.xcdatamodel */,
+			);
+			currentVersion = 237E112F2945C3B50062672F /* CoreDataBase.xcdatamodel */;
+			path = CoreDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 23909E5A292B88CF00A13E62 /* Project object */;
 }
