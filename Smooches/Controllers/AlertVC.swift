@@ -273,11 +273,7 @@ class AlertVC: UIViewController {
             addContactsTableViewHeight.constant = addContactsTableViewHeightNewHiehgt
             scrollViewContentViewHeight.constant = ((scrollViewContentViewHeight.constant) + addContactsTableViewHeightNewHiehgt)
         }
-        
-        if self.selectDateT.alpha == 1 {
-            scrollViewContentViewHeight.constant += 80
-        }
-        
+                
     }
     
     @IBAction func addB(_ sender: Any) {
@@ -363,6 +359,9 @@ class AlertVC: UIViewController {
     
     private func checkStartTime() ->Bool{
         let currentDate = Date()
+        if self.startTime == nil {
+            return false
+        }
         if currentDate < self.startTime! {
             return true
         }else {
@@ -371,6 +370,12 @@ class AlertVC: UIViewController {
     }
     
     private func checkEndTime() ->Bool{
+        if self.endTime == nil  {
+            return false
+        }
+        if self.startTime == nil {
+            return false
+        }
         if self.startTime! < self.endTime! {
             return true
         }else {
@@ -379,6 +384,9 @@ class AlertVC: UIViewController {
     }
                                   
     private func getWeekDaysString() ->String{
+        if self.savedIndexForSelectedWeeks.count == 0 {
+            return ""
+        }
         let converted = savedIndexForSelectedWeeks.map{String($0)}.joined(separator: ",")
         return converted
     }
