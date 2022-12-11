@@ -9,6 +9,7 @@ import UIKit
 import DropDown
 import Fastis
 import Toast_Swift
+import CoreData
 
 
 struct AlertModel {
@@ -280,12 +281,72 @@ class AlertVC: UIViewController {
     }
     
     @IBAction func submitB(_ sender: Any) {
-        if checkStartTime() && checkEndTime() {
-            print(savedIndexForSelectedWeeks)
-            self.view.makeToast("Success")
+        if checkStartTime() && checkEndTime() && (getSelectedContactsString() == "" ? false:true) && getMessages1() && getMessages2() && getMessages3() && getMessages4() && getMessages5() {
+            print(getId())
+            print(getWeekDaysString())
+            print(startTimeT.text!)
+            print(endTimeT.text!)
+            print(reminderTypeT.text!)
+            print(getTimeLimit())
+            print(getSelectedContactsString())
+            print(messageT.text!)
+            print(message2T.text!)
+            print(message3T.text!)
+            print(message4T.text!)
+            print(message5T.text!)
+            let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "")
+            createData(model: model)
+            self.dismiss(animated: true)
         }else {
             self.view.makeToast("Failure")
         }
+    }
+    
+    func createData(model:AlertModel){
+        
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        //We need to create a context from this container
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        //Now let’s create an entity and new user records.
+        let userEntity = NSEntityDescription.entity(forEntityName: "AlertsSaved", in: managedContext)!
+        
+        //final, we need to add some data to our newly created record for each keys using
+        //here adding 5 data with loop
+        
+        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+        user.setValue(model.id, forKeyPath: "id")
+        user.setValue(model.startTime, forKey: "startTime")
+        user.setValue(model.endTime, forKey: "endTime")
+        user.setValue(model.selectedContacts, forKey: "selectedContacts")
+        user.setValue(model.message1, forKey: "message1")
+        user.setValue(model.message2, forKey: "message2")
+        user.setValue(model.message3, forKey: "message3")
+        user.setValue(model.message4, forKey: "message4")
+        user.setValue(model.message5, forKey: "message5")
+        user.setValue(model.timeLimit, forKey: "timeLimit")
+        user.setValue(model.weekDays, forKey: "weekDays")
+        user.setValue(model.reminderType, forKey: "reminderType")
+        
+        
+        //Now we have set all the values. The next step is to save them inside the Core Data
+        
+        do {
+            try managedContext.save()
+            self.view.makeToast("Save Data Succesfully")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            self.view.makeToast("Could not save.")
+        }
+    }
+    
+    private func getId() ->Int{
+        var id = UserDefaults.standard.integer(forKey: "id")
+        id += 1
+        UserDefaults.standard.set(id, forKey: "id")
+        return id
     }
     
     private func checkStartTime() ->Bool{
@@ -308,6 +369,94 @@ class AlertVC: UIViewController {
     private func getWeekDaysString() ->String{
         let converted = savedIndexForSelectedWeeks.map{String($0)}.joined(separator: ",")
         return converted
+    }
+    
+    private func getTimeLimit() ->String{
+        if reminderTypeT.text == dropDownDataSource[1] {
+            return self.selectDateT.text!
+        }
+        
+        if reminderTypeT.text == dropDownDataSource[2] {
+            return self.selectDateT.text!
+        }
+        return ""
+    }
+    
+    private func getSelectedContactsString() ->String{
+        var result = ""
+        if selectedContacts.count == 0 {
+            return result
+        }else {
+            for i in 0..<selectedContacts.count {
+                result.append("\(selectedContacts[i].name?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "No Name")-\(selectedContacts[i].phoneNumber.first?.trimmingCharacters(in: .whitespaces) ?? "No Phone Number")\(i == selectedContacts.count - 1 ? "":",")")
+            }
+            return result
+        }
+    }
+    
+    private func getMessages1() -> Bool{
+        if messageT.text == "Type Here..." {
+            messageT.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else if messageT.text == "" {
+            messageT.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else {
+            messageT.layer.borderColor = UIColor.link.cgColor
+            return true
+        }
+    }
+    
+    private func getMessages2() -> Bool{
+        if message2T.text == "Type Here..." {
+            message2T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else if message2T.text == "" {
+            message2T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else {
+            message2T.layer.borderColor = UIColor.link.cgColor
+            return true
+        }
+    }
+    
+    private func getMessages3() -> Bool{
+        if message3T.text == "Type Here..." {
+            message3T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else if message3T.text == "" {
+            message3T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else {
+            message3T.layer.borderColor = UIColor.link.cgColor
+            return true
+        }
+    }
+    
+    private func getMessages4() -> Bool{
+        if message4T.text == "Type Here..." {
+            message4T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else if message4T.text == "" {
+            message4T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else {
+            message4T.layer.borderColor = UIColor.link.cgColor
+            return true
+        }
+    }
+    
+    private func getMessages5() -> Bool{
+        if message5T.text == "Type Here..." {
+            message5T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else if message5T.text == "" {
+            message5T.layer.borderColor = UIColor.red.cgColor
+            return false
+        }else {
+            message5T.layer.borderColor = UIColor.link.cgColor
+            return true
+        }
     }
     
     

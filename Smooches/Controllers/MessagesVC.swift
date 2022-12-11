@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MessagesVC: UIViewController {
 
@@ -18,6 +19,7 @@ class MessagesVC: UIViewController {
     var cell:MessageTVC?
     var index:Int?
     var expanded = false
+    var dataSource = [AlertModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +27,43 @@ class MessagesVC: UIViewController {
         setupViews()
         setupTabbar()
         setupTableView()
+        retrieveData()
         
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(123)
         for i in self.view.subviews {
             i.alpha = 1
+        }
+    }
+    
+    
+    func retrieveData() {
+        
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        //We need to create a context from this container
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        //Prepare the request of type NSFetchRequest  for the entity
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AlertsSaved")
+        
+//        fetchRequest.fetchLimit = 1
+//        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "email", ascending: false)]
+//
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                dataSource.append(AlertModel(id: data.value(forKey: "id") as! Int64, reminderType: data.value(forKey: "reminderType") as! String, weekDays: data.value(forKey: "weekDays") as? String, timeLimit: data.value(forKey: "timeLimit") as? String, startTime: data.value(forKey: "startTime") as! String, endTime: data.value(forKey: "endTime") as! String, selectedContacts: data.value(forKey: "selectedContacts") as! String, message1: data.value(forKey: "message1") as! String, message2: data.value(forKey: "message2") as! String, message3: data.value(forKey: "message3") as! String, message4: data.value(forKey: "message4") as! String, message5: data.value(forKey: "message5") as! String))
+            }
+            
+        } catch {
+            
+            print("Failed")
         }
     }
     
@@ -99,7 +129,7 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,10 +139,18 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         cell.recycleB.setTitle("", for: .normal)
         cell = self.setupExpirationLabel(cell: cell, indexpath: indexPath) as! MessageTVC
         cell = self.setupDescriptionLabel(cell: &cell, indexpath: indexPath) as! MessageTVC
+        
+        let index = dataSource[indexPath.row]
+        
+        cell.descriptionL.text = index.message1
+        cell.typeL.text = index.reminderType
+        cell.timeL.text = index.startTime
+        
+        
+        
         cell.typeL.layer.borderWidth = 1.0
         cell.typeL.layer.cornerRadius = cell.typeL.bounds.height / 2
         cell.typeL.layer.borderColor = UIColor.white.cgColor
-        
         cell.contentVIeww.layer.cornerRadius = 10.0
         cell.contentVIeww.layer.shadowColor = UIColor.gray.cgColor
         cell.contentVIeww.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
