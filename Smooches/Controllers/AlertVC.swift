@@ -305,7 +305,7 @@ class AlertVC: UIViewController {
             createData(model: model)
             self.dismiss(animated: true)
         }else {
-            self.view.makeToast("Failure")
+            self.view.makeToast("Fill All ")
         }
     }
     
