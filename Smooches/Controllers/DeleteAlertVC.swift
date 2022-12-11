@@ -59,8 +59,8 @@ class DeleteAlertVC: UIViewController {
            let objectToDelete = test[0] as! NSManagedObject
            managedContext.delete(objectToDelete)
            do{
+               delegate?.refresh(status: false)
                try managedContext.save()
-               self.view.makeToast("Delete Data")
            }
            catch
            {

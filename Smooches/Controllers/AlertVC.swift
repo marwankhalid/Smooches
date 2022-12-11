@@ -273,6 +273,11 @@ class AlertVC: UIViewController {
             addContactsTableViewHeight.constant = addContactsTableViewHeightNewHiehgt
             scrollViewContentViewHeight.constant = ((scrollViewContentViewHeight.constant) + addContactsTableViewHeightNewHiehgt)
         }
+        
+        if self.selectDateT.alpha == 1 {
+            scrollViewContentViewHeight.constant += 80
+        }
+        
     }
     
     @IBAction func addB(_ sender: Any) {
@@ -342,8 +347,7 @@ class AlertVC: UIViewController {
         
         do {
             try managedContext.save()
-            self.delegate?.refresh()
-            self.view.makeToast("Save Data Succesfully")
+            self.delegate?.refresh(status: true)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
             self.view.makeToast("Could not save.")
@@ -574,11 +578,6 @@ extension AlertVC:UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.contetnViewBaseBottomConstraint.constant = 270
-        DispatchQueue.main.async {
-            print("ARIAN")
-            self.scrollViewS.scrollToBottom(animated: true)
-            
-        }
         if textView.textColor == .link {
             textView.text = nil
             textView.textColor = .label

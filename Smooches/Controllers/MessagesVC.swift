@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 protocol reloadMessage {
-    func refresh()
+    func refresh(status:Bool)
 }
 
 class MessagesVC: UIViewController {
@@ -33,14 +33,34 @@ class MessagesVC: UIViewController {
         setupViews()
         setupTabbar()
         setupTableView()
-        //deleteData()
+        setupGesture()
         retrieveData()
         
+        if dataSource.count == 0 {
+            postsV.alpha = 0
+        }else {
+            postsV.alpha = 1
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    private func setupGesture(){
+        firstCircleV.isUserInteractionEnabled = true
+        secondCircleV.isUserInteractionEnabled = true
+        firstCircleV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapNewMessage)))
+        secondCircleV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapNewMessage)))
+    }
+    
+    @objc func tapNewMessage(){
+        let controller = storyboard?.instantiateViewController(withIdentifier: AlertVC.identifier) as! AlertVC
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.delegate = self
+        self.present(controller, animated: true)
     }
     
     
@@ -100,10 +120,20 @@ class MessagesVC: UIViewController {
 }
 
 extension MessagesVC:reloadMessage {
-    func refresh() {
+    func refresh(status:Bool) {
+        if !status {
+            self.view.makeToast("Delete Message Successfully")
+        }else {
+            self.view.makeToast("Message Added Successfully")
+        }
         dataSource = [AlertModel]()
         retrieveData()
         tableView.reloadData()
+        if dataSource.count == 0 {
+            postsV.alpha = 0
+        }else {
+            postsV.alpha = 1
+        }
     }
 }
 
@@ -112,7 +142,6 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView ==  tableView {
-            print(1111)
             if self.expanded {
                 tableView.beginUpdates()
                 let more = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Readmore"

@@ -1334,7 +1334,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77b-fa-g5f">
-                                <rect key="frame" x="40" y="301" width="313" height="250"/>
+                                <rect key="frame" x="40" y="311" width="313" height="230"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-bY-ZmU">
                                         <rect key="frame" x="20" y="30" width="273" height="22"/>
@@ -1345,7 +1345,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to delete this Message?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-WT-SPV">
-                                        <rect key="frame" x="20" y="62" width="273" height="22"/>
+                                        <rect key="frame" x="10" y="62" width="293" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Qd3-iU-6m8"/>
                                         </constraints>
@@ -1354,7 +1354,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rS8-lJ-Y4w">
-                                        <rect key="frame" x="20" y="110" width="273" height="120"/>
+                                        <rect key="frame" x="20" y="100" width="273" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-7X-s8Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="273" height="55"/>
@@ -1388,16 +1388,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="SEC-WT-SPV" secondAttribute="trailing" constant="20" id="9jM-qB-6Yl"/>
-                                    <constraint firstAttribute="height" constant="250" id="Hrb-8d-5FK"/>
+                                    <constraint firstAttribute="trailing" secondItem="SEC-WT-SPV" secondAttribute="trailing" constant="10" id="9jM-qB-6Yl"/>
+                                    <constraint firstAttribute="height" constant="230" id="Hrb-8d-5FK"/>
                                     <constraint firstItem="rS8-lJ-Y4w" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="Vmd-9v-HaZ"/>
                                     <constraint firstItem="Yrk-bY-ZmU" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="dPS-Qw-eMf"/>
                                     <constraint firstAttribute="trailing" secondItem="Yrk-bY-ZmU" secondAttribute="trailing" constant="20" id="g9G-OR-RTT"/>
-                                    <constraint firstAttribute="bottom" secondItem="rS8-lJ-Y4w" secondAttribute="bottom" constant="20" id="hng-hb-j9L"/>
+                                    <constraint firstAttribute="bottom" secondItem="rS8-lJ-Y4w" secondAttribute="bottom" constant="10" id="hng-hb-j9L"/>
                                     <constraint firstItem="SEC-WT-SPV" firstAttribute="top" secondItem="Yrk-bY-ZmU" secondAttribute="bottom" constant="10" id="iH9-4n-D8L"/>
                                     <constraint firstAttribute="trailing" secondItem="rS8-lJ-Y4w" secondAttribute="trailing" constant="20" id="qYc-PT-fgM"/>
                                     <constraint firstItem="Yrk-bY-ZmU" firstAttribute="top" secondItem="77b-fa-g5f" secondAttribute="top" constant="30" id="vBJ-uy-Tf9"/>
-                                    <constraint firstItem="SEC-WT-SPV" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="20" id="wM3-St-a0W"/>
+                                    <constraint firstItem="SEC-WT-SPV" firstAttribute="leading" secondItem="77b-fa-g5f" secondAttribute="leading" constant="10" id="wM3-St-a0W"/>
                                 </constraints>
                             </view>
                         </subviews>
