@@ -191,9 +191,12 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
             controller.delegate = self
             self.present(controller, animated: true)
         }
-        cell.descriptionL.text = index.message1
+        print("RANDOM",index.startTime)
+        print("RANDOM",index.endTime)
+        print("RANDOM",Date.randomBetween(start: index.startTime, end: index.endTime))
+        cell.timeL.text = Date.randomBetween(start: index.startTime, end: index.endTime)
+        cell.descriptionL.text = chooseRandomlyFromMessagesOfArray(indexpath: indexPath)
         cell.typeL.text = index.reminderType
-        cell.timeL.text = index.startTime
         cell.dateL.text = index.date
         cell.typeL.layer.borderWidth = 1.0
         cell.typeL.layer.cornerRadius = cell.typeL.bounds.height / 2
@@ -205,6 +208,22 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         cell.contentVIeww.layer.shadowOpacity = 0.7
         return cell
     }
+    
+    private func addMessagesToArray(indexpath:IndexPath) ->[String]{
+        var data = [String]()
+        data.append(dataSource[indexpath.row].message1)
+        data.append(dataSource[indexpath.row].message2)
+        data.append(dataSource[indexpath.row].message3)
+        data.append(dataSource[indexpath.row].message4)
+        data.append(dataSource[indexpath.row].message5)
+        return data
+    }
+    
+    private func chooseRandomlyFromMessagesOfArray(indexpath:IndexPath) ->String{
+        return addMessagesToArray(indexpath: indexpath).randomElement() ?? ""
+    }
+    
+    
     
     private func setupDescriptionLabel(cell: inout MessageTVC,indexpath:IndexPath) -> UITableViewCell {
         cell.descriptionL.numberOfLines = 4
@@ -386,4 +405,40 @@ extension UILabel {
             }
             return self.text!.count
         }
+}
+
+extension Date {
+    
+    static func randomBetween(start: String, end: String, format: String = "h:mm a") -> String {
+        let date1 = Date.parse(start, format: format)
+        let date2 = Date.parse(end, format: format)
+        return Date.randomBetween(start: date1, end: date2).dateString(format)
+    }
+
+    static func randomBetween(start: Date, end: Date) -> Date {
+        var date1 = start
+        var date2 = end
+        if date2 < date1 {
+            let temp = date1
+            date1 = date2
+            date2 = temp
+        }
+        let span = TimeInterval.random(in: date1.timeIntervalSinceNow...date2.timeIntervalSinceNow)
+        return Date(timeIntervalSinceNow: span)
+    }
+
+    func dateString(_ format: String = "yyyy-MM-dd") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+
+    static func parse(_ string: String, format: String = "yyyy-MM-dd") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone.default
+        dateFormatter.dateFormat = format
+
+        let date = dateFormatter.date(from: string)!
+        return date
+    }
 }
