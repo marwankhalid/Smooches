@@ -82,6 +82,7 @@ class AlertVC: UIViewController {
     var startTime:Date?
     var endTime:Date?
     var selectedWeekDays = [String]()
+    var delegate:reloadMessage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -341,6 +342,7 @@ class AlertVC: UIViewController {
         
         do {
             try managedContext.save()
+            self.delegate?.refresh()
             self.view.makeToast("Save Data Succesfully")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

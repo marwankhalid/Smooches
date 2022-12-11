@@ -18,8 +18,12 @@ class MessageTVC: UITableViewCell {
     @IBOutlet weak var recycleB: UIButton!
     @IBOutlet weak var expirationTextL: UILabel!
     
+    var tapDelete : (() -> Void)? = nil
+    
     @IBAction func recycleB(_ sender: Any) {
-        
+        if let btnAction = self.tapDelete {
+            btnAction()
+        }
     }
     
     @IBAction func editB(_ sender: Any) {

@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+protocol reloadMessage {
+    func refresh()
+}
+
 class MessagesVC: UIViewController {
 
     @IBOutlet weak var newMessageB: UIButton!
@@ -20,6 +24,8 @@ class MessagesVC: UIViewController {
     var index:Int?
     var expanded = false
     var dataSource = [AlertModel]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +40,7 @@ class MessagesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(123)
-        for i in self.view.subviews {
-            i.alpha = 1
-        }
-        tableView.reloadData()
+        
     }
     
     
@@ -69,45 +71,6 @@ class MessagesVC: UIViewController {
         }
     }
     
-    
-    func deleteData(){
-       
-       //As we know that container is set up in the AppDelegates so we need to refer that container.
-       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-       
-       //We need to create a context from this container
-       let managedContext = appDelegate.persistentContainer.viewContext
-       
-       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AlertsSaved")
-       fetchRequest.predicate = NSPredicate(format: "id = %@", "1")
-      
-       do
-       {
-           let test = try managedContext.fetch(fetchRequest)
-           
-           let objectToDelete = test[0] as! NSManagedObject
-           managedContext.delete(objectToDelete)
-           do{
-               try managedContext.save()
-               self.view.makeToast("Delete Data")
-           }
-           catch
-           {
-               self.view.makeToast("Can't Delete Data")
-               print(error)
-           }
-           
-       }
-       catch
-       {
-           self.view.makeToast("Can't Delete Data")
-           print(error)
-       }
-   }
-   
-    
-    
-    
     private func setupViews(){
         firstCircleV.layer.cornerRadius = firstCircleV.bounds.height / 2
         secondCircleV.layer.cornerRadius = secondCircleV.bounds.height / 2
@@ -128,10 +91,19 @@ class MessagesVC: UIViewController {
     }
 
     @IBAction func newMessageB(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "AlertVC") as! AlertVC
+        let controller = storyboard?.instantiateViewController(withIdentifier: AlertVC.identifier) as! AlertVC
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.delegate = self
         self.present(controller, animated: true)
+    }
+}
+
+extension MessagesVC:reloadMessage {
+    func refresh() {
+        dataSource = [AlertModel]()
+        retrieveData()
+        tableView.reloadData()
     }
 }
 
@@ -182,7 +154,14 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         cell = self.setupDescriptionLabel(cell: &cell, indexpath: indexPath) as! MessageTVC
         
         let index = dataSource[indexPath.row]
-        
+        cell.tapDelete = {
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: DeleteAlertVC.identifier) as! DeleteAlertVC
+            controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            controller.id = index.id.description
+            controller.delegate = self
+            self.present(controller, animated: true)
+        }
         cell.descriptionL.text = index.message1
         cell.typeL.text = index.reminderType
         cell.timeL.text = index.startTime
@@ -291,13 +270,7 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        for i in self.view.subviews {
-//            i.alpha = 0.5
-//        }
-        let controller = storyboard?.instantiateViewController(withIdentifier: DeleteAlertVC.identifier) as! DeleteAlertVC
-        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(controller, animated: true)
+        
     }
     
     private func tableView(tableView: UITableView,heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
