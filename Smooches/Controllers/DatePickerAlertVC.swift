@@ -45,6 +45,19 @@ class DatePickerAlertVC: UIViewController {
         return timepicker
     }()
     
+    var delegate:tapTime?
+    let startTime:Bool?
+    let endTime:Bool?
+    
+    init(startTime: Bool?, endTime: Bool?) {
+        self.startTime = startTime
+        self.endTime = endTime
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +105,23 @@ class DatePickerAlertVC: UIViewController {
     }
     
     @objc func tapOk(){
+        delegate?.tapTime(time: "", startTime: startTime! ? true :false, endTime: endTime! ? true :false)
         print("Hello")
+        self.getDate(date: timePicker.date)
+//        let picker = UIDatePicker()
+//        picker.datePickerMode = .time
+//
+//        let date = picker.date
+//        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+//        let hour = components.hour!
+//        let minute = components.minute!
     }
 
+    func getDate(date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone.current
+        let time = dateFormatter.string(from: date)
+        print(time)
+    }
 }

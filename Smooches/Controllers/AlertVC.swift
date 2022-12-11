@@ -9,6 +9,24 @@ import UIKit
 import DropDown
 import Fastis
 
+
+struct AlertModel {
+    let id:Int64
+    let reminderType:String
+    let weekDays:String?
+    let timeLimit:String?
+    let startTime:String
+    let endTime:String
+    let selectedContacts:String
+    let message1:String
+    let message2:String
+    let message3:String
+    let message4:String
+    let message5:String
+}
+
+
+
 class AlertVC: UIViewController {
     
     @IBOutlet weak var contentViewBase: UIView!
@@ -31,7 +49,6 @@ class AlertVC: UIViewController {
     @IBOutlet weak var message3T: UITextView!
     @IBOutlet weak var message4T: UITextView!
     @IBOutlet weak var message5T: UITextView!
-    
     @IBOutlet weak var timeLimitL: UILabel!
     @IBOutlet weak var timeLimitHeightConst: NSLayoutConstraint!
     @IBOutlet weak var selectDateT: UITextField!
@@ -54,7 +71,7 @@ class AlertVC: UIViewController {
     
     let dropDown = DropDown()
     var dataSource = [Week]()
-    
+    var savedDataSource:AlertModel?
     var savedIndexForSelectedWeeks:[Int] = [Int]()
     var selectedContacts = [phoneContactAgain]()
     var dropDownDataSource = ["Single Day", "Date Range","Monthly"]
@@ -78,25 +95,10 @@ class AlertVC: UIViewController {
         selectDateT.alpha = 0
     }
     
-    private func notification(){
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        //scrollViewS.scrollToBottom(animated: true)
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.view.frame.origin.y -= keyboardSize.height
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
-    }
-    
     @IBAction func closeB(_ sender: Any) {
         self.dismiss(animated: true)
     }
+    
     private func setupViews(){
         submitB.layer.cornerRadius = submitB.bounds.height / 2
         addB.backgroundColor = .link
@@ -162,16 +164,18 @@ class AlertVC: UIViewController {
     }
     
     @objc func tapStartTime(){
-        let controller = DatePickerAlertVC()
+        let controller = DatePickerAlertVC(startTime: true, endTime: false)
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.delegate = self
         self.present(controller, animated: true)
     }
     
     @objc func tapEndTime(){
-        let controller = DatePickerAlertVC()
+        let controller = DatePickerAlertVC(startTime: false, endTime: true)
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.delegate = self
         self.present(controller, animated: true)
     }
     
@@ -275,6 +279,21 @@ class AlertVC: UIViewController {
         
     }
     
+}
+
+extension AlertVC:tapTime {
+    func tapTime(time: String,startTime: Bool, endTime:Bool) {
+        if startTime {
+            self.startTimeT.text = time
+        }
+        if endTime {
+            self.endTimeT.text = time
+        }
+    }
+}
+
+protocol tapTime {
+    func tapTime(time:String,startTime:Bool,endTime:Bool)
 }
 
 extension AlertVC:selectedContactsTap {
