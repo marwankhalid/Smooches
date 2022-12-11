@@ -15,10 +15,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let id = 0
-        UserDefaults.standard.setValue(id, forKey: "id")
+        
+//        deleteData()
         return true
     }
+    
+    func deleteData(){
+       
+       //As we know that container is set up in the AppDelegates so we need to refer that container.
+       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+       
+       //We need to create a context from this container
+       let managedContext = appDelegate.persistentContainer.viewContext
+       
+       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AlertsSaved")
+       fetchRequest.predicate = NSPredicate(format: "id = %@", "1")
+      
+       do
+       {
+           let test = try managedContext.fetch(fetchRequest)
+           
+           let objectToDelete = test[0] as! NSManagedObject
+           managedContext.delete(objectToDelete)
+           do{
+               try managedContext.save()
+               //self.view.makeToast("Delete Data")
+           }
+           catch
+           {
+               //self.view.makeToast("Can't Delete Data")
+               print(error)
+           }
+           
+       }
+       catch
+       {
+           //self.view.makeToast("Can't Delete Data")
+           print(error)
+       }
+   }
     
     // MARK: UISceneSession Lifecycle
     
@@ -82,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                //fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container

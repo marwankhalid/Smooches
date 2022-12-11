@@ -19,6 +19,7 @@ struct AlertModel {
     let timeLimit:String?
     let startTime:String
     let endTime:String
+    let date:String
     let selectedContacts:String
     let message1:String
     let message2:String
@@ -294,7 +295,11 @@ class AlertVC: UIViewController {
             print(message3T.text!)
             print(message4T.text!)
             print(message5T.text!)
-            let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "")
+            let today = Date()
+            let formatter3 = DateFormatter()
+            formatter3.dateFormat = "d MMM y"
+            print(formatter3.string(from: today))
+            let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", date: formatter3.string(from: today) ,selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "")
             createData(model: model)
             self.dismiss(animated: true)
         }else {
@@ -321,6 +326,7 @@ class AlertVC: UIViewController {
         user.setValue(model.startTime, forKey: "startTime")
         user.setValue(model.endTime, forKey: "endTime")
         user.setValue(model.selectedContacts, forKey: "selectedContacts")
+        user.setValue(model.date, forKey: "date")
         user.setValue(model.message1, forKey: "message1")
         user.setValue(model.message2, forKey: "message2")
         user.setValue(model.message3, forKey: "message3")

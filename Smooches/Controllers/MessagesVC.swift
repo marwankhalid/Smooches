@@ -27,6 +27,7 @@ class MessagesVC: UIViewController {
         setupViews()
         setupTabbar()
         setupTableView()
+        //deleteData()
         retrieveData()
         
     }
@@ -37,6 +38,7 @@ class MessagesVC: UIViewController {
         for i in self.view.subviews {
             i.alpha = 1
         }
+        tableView.reloadData()
     }
     
     
@@ -58,7 +60,7 @@ class MessagesVC: UIViewController {
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
-                dataSource.append(AlertModel(id: data.value(forKey: "id") as! Int64, reminderType: data.value(forKey: "reminderType") as! String, weekDays: data.value(forKey: "weekDays") as? String, timeLimit: data.value(forKey: "timeLimit") as? String, startTime: data.value(forKey: "startTime") as! String, endTime: data.value(forKey: "endTime") as! String, selectedContacts: data.value(forKey: "selectedContacts") as! String, message1: data.value(forKey: "message1") as! String, message2: data.value(forKey: "message2") as! String, message3: data.value(forKey: "message3") as! String, message4: data.value(forKey: "message4") as! String, message5: data.value(forKey: "message5") as! String))
+                dataSource.append(AlertModel(id: data.value(forKey: "id") as! Int64, reminderType: data.value(forKey: "reminderType") as! String, weekDays: data.value(forKey: "weekDays") as? String, timeLimit: data.value(forKey: "timeLimit") as? String, startTime: data.value(forKey: "startTime") as! String, endTime: data.value(forKey: "endTime") as! String, date: data.value(forKey: "date") as! String, selectedContacts: data.value(forKey: "selectedContacts") as! String, message1: data.value(forKey: "message1") as! String, message2: data.value(forKey: "message2") as! String, message3: data.value(forKey: "message3") as! String, message4: data.value(forKey: "message4") as! String, message5: data.value(forKey: "message5") as! String))
             }
             
         } catch {
@@ -66,6 +68,45 @@ class MessagesVC: UIViewController {
             print("Failed")
         }
     }
+    
+    
+    func deleteData(){
+       
+       //As we know that container is set up in the AppDelegates so we need to refer that container.
+       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+       
+       //We need to create a context from this container
+       let managedContext = appDelegate.persistentContainer.viewContext
+       
+       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AlertsSaved")
+       fetchRequest.predicate = NSPredicate(format: "id = %@", "1")
+      
+       do
+       {
+           let test = try managedContext.fetch(fetchRequest)
+           
+           let objectToDelete = test[0] as! NSManagedObject
+           managedContext.delete(objectToDelete)
+           do{
+               try managedContext.save()
+               self.view.makeToast("Delete Data")
+           }
+           catch
+           {
+               self.view.makeToast("Can't Delete Data")
+               print(error)
+           }
+           
+       }
+       catch
+       {
+           self.view.makeToast("Can't Delete Data")
+           print(error)
+       }
+   }
+   
+    
+    
     
     private func setupViews(){
         firstCircleV.layer.cornerRadius = firstCircleV.bounds.height / 2
@@ -145,9 +186,7 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
         cell.descriptionL.text = index.message1
         cell.typeL.text = index.reminderType
         cell.timeL.text = index.startTime
-        
-        
-        
+        cell.dateL.text = index.date
         cell.typeL.layer.borderWidth = 1.0
         cell.typeL.layer.cornerRadius = cell.typeL.bounds.height / 2
         cell.typeL.layer.borderColor = UIColor.white.cgColor
@@ -226,8 +265,8 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     private func setupExpirationLabel(cell:MessageTVC,indexpath:IndexPath) -> UITableViewCell{
-        let text = "This message will expire on 21 Nov 2022"
-        let date = "21 Nov 2022"
+        let text = "This message will expire on \(self.dataSource[indexpath.row].date)"
+        let date = self.dataSource[indexpath.row].date
         cell.expirationTextL.textColor =  UIColor.white
         let underlineAttriString = NSMutableAttributedString(string: text)
         let range1 = (text as NSString).range(of: date)
