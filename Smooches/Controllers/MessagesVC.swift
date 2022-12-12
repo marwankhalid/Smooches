@@ -82,7 +82,7 @@ class MessagesVC: UIViewController {
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
-                dataSource.append(AlertModel(id: data.value(forKey: "id") as! Int64, reminderType: data.value(forKey: "reminderType") as! String, weekDays: data.value(forKey: "weekDays") as? String, timeLimit: data.value(forKey: "timeLimit") as? String, startTime: data.value(forKey: "startTime") as! String, endTime: data.value(forKey: "endTime") as! String, date: data.value(forKey: "date") as! String, selectedContacts: data.value(forKey: "selectedContacts") as! String, message1: data.value(forKey: "message1") as! String, message2: data.value(forKey: "message2") as! String, message3: data.value(forKey: "message3") as! String, message4: data.value(forKey: "message4") as! String, message5: data.value(forKey: "message5") as! String))
+                dataSource.append(AlertModel(id: data.value(forKey: "id") as! Int64, reminderType: data.value(forKey: "reminderType") as! String, weekDays: data.value(forKey: "weekDays") as? String, timeLimit: data.value(forKey: "timeLimit") as? String, startTime: data.value(forKey: "startTime") as! String, endTime: data.value(forKey: "endTime") as! String, time: data.value(forKey: "time") as! String, date: data.value(forKey: "date") as! String, selectedContacts: data.value(forKey: "selectedContacts") as! String, message1: data.value(forKey: "message1") as! String, message2: data.value(forKey: "message2") as! String, message3: data.value(forKey: "message3") as! String, message4: data.value(forKey: "message4") as! String, message5: data.value(forKey: "message5") as! String,randomMessage: data.value(forKey: "randomMessage") as! String))
             }
             
         } catch {
@@ -191,11 +191,8 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
             controller.delegate = self
             self.present(controller, animated: true)
         }
-        print("RANDOM",index.startTime)
-        print("RANDOM",index.endTime)
-        print("RANDOM",Date.randomBetween(start: index.startTime, end: index.endTime))
-        cell.timeL.text = Date.randomBetween(start: index.startTime, end: index.endTime)
-        cell.descriptionL.text = chooseRandomlyFromMessagesOfArray(indexpath: indexPath)
+        cell.timeL.text = index.time
+        cell.descriptionL.text = index.randomMessage
         cell.typeL.text = index.reminderType
         cell.dateL.text = index.date
         cell.typeL.layer.borderWidth = 1.0
@@ -222,8 +219,6 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
     private func chooseRandomlyFromMessagesOfArray(indexpath:IndexPath) ->String{
         return addMessagesToArray(indexpath: indexpath).randomElement() ?? ""
     }
-    
-    
     
     private func setupDescriptionLabel(cell: inout MessageTVC,indexpath:IndexPath) -> UITableViewCell {
         cell.descriptionL.numberOfLines = 4

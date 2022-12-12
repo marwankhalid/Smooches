@@ -9,9 +9,11 @@
         <attribute name="message3" attributeType="String"/>
         <attribute name="message4" attributeType="String"/>
         <attribute name="message5" attributeType="String"/>
+        <attribute name="randomMessage" attributeType="String"/>
         <attribute name="reminderType" attributeType="String"/>
         <attribute name="selectedContacts" attributeType="String"/>
         <attribute name="startTime" attributeType="String"/>
+        <attribute name="time" attributeType="String"/>
         <attribute name="timeLimit" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="weekDays" optional="YES" attributeType="String"/>
     </entity>

@@ -19,6 +19,7 @@ struct AlertModel {
     let timeLimit:String?
     let startTime:String
     let endTime:String
+    let time:String
     let date:String
     let selectedContacts:String
     let message1:String
@@ -26,6 +27,7 @@ struct AlertModel {
     let message3:String
     let message4:String
     let message5:String
+    let randomMessage:String
 }
 
 
@@ -301,12 +303,27 @@ class AlertVC: UIViewController {
             let formatter3 = DateFormatter()
             formatter3.dateFormat = "d MMM y"
             print(formatter3.string(from: today))
-            let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", date: formatter3.string(from: today) ,selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "")
+            let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", time: Date.randomBetween(start: startTimeT.text ?? "", end: endTimeT.text ?? ""), date: formatter3.string(from: today) ,selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "", randomMessage: chooseRandomlyFromMessagesOfArray())
             createData(model: model)
+            print(chooseRandomlyFromMessagesOfArray())
             self.dismiss(animated: true)
         }else {
             self.view.makeToast("Fill All ")
         }
+    }
+    
+    private func addMessagesToArray() ->[String]{
+        var data = [String]()
+        data.append(messageT.text ?? "")
+        data.append(message2T.text ?? "")
+        data.append(message3T.text ?? "")
+        data.append(message4T.text ?? "")
+        data.append(message5T.text ?? "")
+        return data
+    }
+    
+    private func chooseRandomlyFromMessagesOfArray() ->String{
+        return addMessagesToArray().randomElement() ?? ""
     }
     
     func createData(model:AlertModel){
@@ -327,6 +344,7 @@ class AlertVC: UIViewController {
         user.setValue(model.id, forKeyPath: "id")
         user.setValue(model.startTime, forKey: "startTime")
         user.setValue(model.endTime, forKey: "endTime")
+        user.setValue(model.time, forKey: "time")
         user.setValue(model.selectedContacts, forKey: "selectedContacts")
         user.setValue(model.date, forKey: "date")
         user.setValue(model.message1, forKey: "message1")
@@ -337,6 +355,7 @@ class AlertVC: UIViewController {
         user.setValue(model.timeLimit, forKey: "timeLimit")
         user.setValue(model.weekDays, forKey: "weekDays")
         user.setValue(model.reminderType, forKey: "reminderType")
+        user.setValue(model.randomMessage, forKey: "randomMessage")
         
         
         //Now we have set all the values. The next step is to save them inside the Core Data
