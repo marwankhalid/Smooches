@@ -48,6 +48,7 @@ class MessagesVC: UIViewController {
         
     }
     
+    
     private func setupGesture(){
         firstCircleV.isUserInteractionEnabled = true
         secondCircleV.isUserInteractionEnabled = true

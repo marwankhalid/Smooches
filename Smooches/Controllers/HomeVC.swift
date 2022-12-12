@@ -82,4 +82,11 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource {
         cell.cardV.layer.shadowOpacity = 0.7
         return cell
     }
+    
+    
 }
+
+public enum SCLAnimationStyle {
+    case noAnimation, topToBottom, bottomToTop, leftToRight, rightToLeft
+}
+
