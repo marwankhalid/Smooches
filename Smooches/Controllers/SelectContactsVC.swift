@@ -7,13 +7,12 @@
 
 import UIKit
 
-struct phoneContactAgain {
+struct phoneContactAgain:Equatable {
     var name: String?
     var avatarData: Data?
     var phoneNumber: [String] = [String]()
     var email: [String] = [String]()
 }
-
 
 
 class SelectContactsVC: UIViewController {
@@ -25,11 +24,12 @@ class SelectContactsVC: UIViewController {
     @IBOutlet weak var dismissB: UIButton!
     @IBOutlet weak var pleaseSelectDescriptionL: UILabel!
     
-    var selectContactsCounter = 1
+    var selectContactsCounter = 0
     var phoneContacts = [PhoneContact]()
     var selectedContactsArray = [phoneContactAgain]()
     var contactsAgain = [phoneContactAgain]()
     
+    var editCheck = [phoneContactAgain]()
     var delegate:selectedContactsTap?
     var indexSaved = [Int]()
     
@@ -44,6 +44,21 @@ class SelectContactsVC: UIViewController {
         doneB.setTitle("Done", for: .normal)
         dismissB.setTitle("Reset", for: .normal)
         setupTableView()
+        getSelectDataForEdit()
+        
+        
+    }
+    
+    private func getSelectDataForEdit(){
+        if !UserDefaults.standard.bool(forKey: "newMessage") {
+            for i in 0..<editCheck.count {
+                let index = contactsAgain.firstIndex(where: { $0.name == editCheck[i].name })
+                indexSaved.append(index ?? 0)
+            }
+            selectContactsCounter += indexSaved.count - 1
+        }else {
+            selectContactsCounter = 0
+        }
     }
 
     @IBAction func doneB(_ sender: Any) {
@@ -115,19 +130,21 @@ extension SelectContactsVC:UITableViewDelegate,UITableViewDataSource {
         cell.cardV.layer.shadowRadius = 1.0
         cell.cardV.layer.shadowOpacity = 0.7
         
+            if let _ = indexSaved.firstIndex(of: indexPath.row) {
+                cell.accessoryType = .checkmark
+            }else {
+                cell.accessoryType = .none
+            }
         
-        if let _ = indexSaved.firstIndex(of: indexPath.row) {
-            cell.accessoryType = .checkmark
-        }else {
-            cell.accessoryType = .none
-        }
+        
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.selectContactsCounter <= 5 {
+        print(selectContactsCounter)
+        if self.selectContactsCounter <= 4 {
             let cell = tableView.cellForRow(at: indexPath) as! HomeTVC
             if indexSaved.count == 0 {
                 let cell = tableView.cellForRow(at: indexPath) as! HomeTVC

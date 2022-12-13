@@ -85,7 +85,6 @@ class AlertVC: UIViewController {
     var endTime:Date?
     var selectedWeekDays = [String]()
     var delegate:reloadMessage?
-    
     var editDataSource:AlertModel?
     
     override func viewDidLoad() {
@@ -117,7 +116,46 @@ class AlertVC: UIViewController {
             message3T.text = editDataSource?.message3
             message4T.text = editDataSource?.message4
             message5T.text = editDataSource?.message5
+            messageT.textColor = .label
+            message2T.textColor = .label
+            message3T.textColor = .label
+            message4T.textColor = .label
+            message5T.textColor = .label
+            setSelectContacts()
         }
+    }
+    
+    private func decodeSelectWeeks() ->[String]{
+        if editDataSource?.weekDays == "" {
+            return [String]()
+        }
+        let data = editDataSource?.weekDays!.components(separatedBy: ",")
+        return data!
+    }
+    
+    private func setSelectWeeks(){
+        dataSource = [Week]()
+        let arr =  decodeSelectWeeks()
+    }
+    
+    private func decodeSelectContacts() ->[String]{
+        if editDataSource?.selectedContacts == "" {
+            return [String]()
+        }
+        let data = editDataSource?.selectedContacts.components(separatedBy: ",")
+        return data!
+    }
+    
+    private func setSelectContacts(){
+        selectedContacts = [phoneContactAgain]()
+        let arr =  decodeSelectContacts()
+        for i in 0..<arr.count {
+            let name = arr[i].components(separatedBy: "-")
+            selectedContacts.append(phoneContactAgain(name: name[0], avatarData: nil, phoneNumber: [name[1]], email: [String]()))
+        }
+        addContactsTableView.reloadData()
+        
+        setHieghts()
     }
     
     
@@ -299,6 +337,8 @@ class AlertVC: UIViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: SelectContactsVC.identifier) as! SelectContactsVC
         controller.modalPresentationStyle = .fullScreen
         controller.delegate = self
+        controller.selectContactsCounter = selectedContacts.count
+        controller.editCheck = selectedContacts
         self.present(controller, animated: true)
     }
     
@@ -321,12 +361,65 @@ class AlertVC: UIViewController {
             formatter3.dateFormat = "d MMM y"
             print(formatter3.string(from: today))
             let model = AlertModel(id: Int64(getId()), reminderType: reminderTypeT.text ?? "", weekDays: getWeekDaysString(), timeLimit: getTimeLimit(), startTime: startTimeT.text ?? "", endTime: endTimeT.text ?? "", time: Date.randomBetween(start: startTimeT.text ?? "", end: endTimeT.text ?? ""), date: formatter3.string(from: today) ,selectedContacts: getSelectedContactsString(), message1: messageT.text ?? "", message2: message2T.text ?? "", message3: message3T.text ?? "", message4: message4T.text ?? "", message5: message5T.text ?? "", randomMessage: chooseRandomlyFromMessagesOfArray())
-            createData(model: model)
+            if UserDefaults.standard.bool(forKey: "newMessage") {
+                createData(model: model)
+            }else {
+                updateData(model: model)
+            }
             print(chooseRandomlyFromMessagesOfArray())
             self.dismiss(animated: true)
         }else {
             self.view.makeToast("Fill All ")
         }
+    }
+    
+    func updateData(model:AlertModel){
+    
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        //We need to create a context from this container
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "AlertsSaved")
+        
+        fetchRequest.predicate = NSPredicate(format: "id = %@", editDataSource!.id.description)
+        do
+        {
+            let test = try managedContext.fetch(fetchRequest)
+            let user = test[0] as! NSManagedObject
+            user.setValue(model.id, forKeyPath: "id")
+            user.setValue(model.startTime, forKey: "startTime")
+            user.setValue(model.endTime, forKey: "endTime")
+            user.setValue(model.time, forKey: "time")
+            user.setValue(model.selectedContacts, forKey: "selectedContacts")
+            user.setValue(model.date, forKey: "date")
+            user.setValue(model.message1, forKey: "message1")
+            user.setValue(model.message2, forKey: "message2")
+            user.setValue(model.message3, forKey: "message3")
+            user.setValue(model.message4, forKey: "message4")
+            user.setValue(model.message5, forKey: "message5")
+            user.setValue(model.timeLimit, forKey: "timeLimit")
+            user.setValue(model.weekDays, forKey: "weekDays")
+            user.setValue(model.reminderType, forKey: "reminderType")
+            user.setValue(model.randomMessage, forKey: "randomMessage")
+            
+                do{
+                    try managedContext.save()
+                    self.delegate?.refresh(status: true)
+                }
+                catch
+                {
+                    self.view.makeToast("Error: Could Not Save")
+                    print(error)
+                }
+            }
+        catch
+        {
+            self.view.makeToast("Error: Could Not Save")
+            print(error)
+        }
+   
     }
     
     private func addMessagesToArray() ->[String]{
@@ -568,6 +661,14 @@ extension AlertVC:UITableViewDelegate,UITableViewDataSource {
             cell.checkB.setTitle("", for: .normal)
             cell.checkB.tintColor = .label
             cell.nameL.text = dataSource[indexPath.row].name
+            
+            if decodeSelectWeeks().contains(where: {$0 == indexPath.row.description}) {
+                cell.checkB.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            }else {
+                cell.checkB.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            }
+            
+            
             cell.nameL.textColor = .label
             cell.cardView.backgroundColor = .systemBackground
             cell.cardView.layer.cornerRadius = 10.0
