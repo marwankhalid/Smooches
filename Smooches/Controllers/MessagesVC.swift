@@ -48,7 +48,6 @@ class MessagesVC: UIViewController {
         
     }
     
-    
     private func setupGesture(){
         firstCircleV.isUserInteractionEnabled = true
         secondCircleV.isUserInteractionEnabled = true
@@ -57,6 +56,7 @@ class MessagesVC: UIViewController {
     }
     
     @objc func tapNewMessage(){
+        UserDefaults.standard.set(true, forKey: "newMessage")
         let controller = storyboard?.instantiateViewController(withIdentifier: AlertVC.identifier) as! AlertVC
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
@@ -66,16 +66,12 @@ class MessagesVC: UIViewController {
     
     
     func retrieveData() {
-        
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         //We need to create a context from this container
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         //Prepare the request of type NSFetchRequest  for the entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AlertsSaved")
-        
 //        fetchRequest.fetchLimit = 1
 //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
 //        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "email", ascending: false)]
@@ -112,6 +108,7 @@ class MessagesVC: UIViewController {
     }
 
     @IBAction func newMessageB(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "newMessage")
         let controller = storyboard?.instantiateViewController(withIdentifier: AlertVC.identifier) as! AlertVC
         controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
@@ -192,6 +189,17 @@ extension MessagesVC:UITableViewDelegate,UITableViewDataSource {
             controller.delegate = self
             self.present(controller, animated: true)
         }
+        
+        cell.tapEdit = {
+            UserDefaults.standard.set(false, forKey: "newMessage")
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: AlertVC.identifier) as! AlertVC
+            controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            controller.delegate = self
+            controller.editDataSource = self.dataSource[indexPath.row]
+            self.present(controller, animated: true)
+        }
+        
         cell.timeL.text = index.time
         cell.descriptionL.text = index.randomMessage
         cell.typeL.text = index.reminderType

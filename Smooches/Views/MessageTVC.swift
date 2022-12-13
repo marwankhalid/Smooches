@@ -19,6 +19,7 @@ class MessageTVC: UITableViewCell {
     @IBOutlet weak var expirationTextL: UILabel!
     
     var tapDelete : (() -> Void)? = nil
+    var tapEdit : (() -> Void)? = nil
     
     @IBAction func recycleB(_ sender: Any) {
         if let btnAction = self.tapDelete {
@@ -27,7 +28,9 @@ class MessageTVC: UITableViewCell {
     }
     
     @IBAction func editB(_ sender: Any) {
-        
+        if let btnAction = self.tapEdit {
+            btnAction()
+        }
     }
     
     override func awakeFromNib() {

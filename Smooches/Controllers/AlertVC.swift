@@ -86,6 +86,8 @@ class AlertVC: UIViewController {
     var selectedWeekDays = [String]()
     var delegate:reloadMessage?
     
+    var editDataSource:AlertModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +96,7 @@ class AlertVC: UIViewController {
         setHieghts()
         setupViews()
         setupText()
+        editOrNewMessage()
         
     }
     
@@ -103,6 +106,20 @@ class AlertVC: UIViewController {
         timeLimitL.alpha = 0
         selectDateT.alpha = 0
     }
+    
+    private func editOrNewMessage(){
+        if !UserDefaults.standard.bool(forKey: "newMessage") {
+            startTimeT.text = editDataSource?.startTime
+            endTimeT.text = editDataSource?.endTime
+            reminderTypeT.text = editDataSource?.reminderType
+            messageT.text = editDataSource?.message1
+            message2T.text = editDataSource?.message2
+            message3T.text = editDataSource?.message3
+            message4T.text = editDataSource?.message4
+            message5T.text = editDataSource?.message5
+        }
+    }
+    
     
     @IBAction func closeB(_ sender: Any) {
         self.dismiss(animated: true)
